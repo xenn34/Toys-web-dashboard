@@ -4,14 +4,16 @@ import Header from "../../components/layouts/header";
 import Signin from "../../components/Login-logout/Signin";
 
 const SigninPage = () => {
-  return <div>
-    <main>
-      <Header/>
-      <Outlet/>
-    </main>
-    <Signin/>
-    <Footer/>
-  </div>;
+  return (
+    <div>
+      <main>
+        <Header />
+        <Outlet />
+      </main>
+      <Signin />
+      <Footer />
+    </div>
+  );
 };
 
 export default SigninPage;
