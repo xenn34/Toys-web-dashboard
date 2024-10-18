@@ -2,6 +2,8 @@ import React, { Fragment } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Container, Row, Col } from "reactstrap";
 import SideBar from "./ComponentDashboard/SideBarDash/SideBarDash.jsx";
+import "@fortawesome/fontawesome-free/css/all.min.css"; // Import Font Awesome
+
 const Dashboard = () => {
   return (
     <Fragment>
