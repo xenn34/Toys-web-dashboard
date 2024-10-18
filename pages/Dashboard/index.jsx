@@ -7,7 +7,7 @@ const Dashboard = () => {
     <Fragment>
       <Container className="bg-primary" fluid>
         <Row>
-          <Col xs="12" md="3" className="bg-light p-3">
+          <Col xs="12" md="3" className="bg-info p-3">
             {" "}
             <SideBar />
           </Col>
