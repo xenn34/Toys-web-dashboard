@@ -1,25 +1,30 @@
-import React from "react";
+import React, { useState } from "react";
 import {
-  UncontrolledCollapse,
-  NavbarBrand,
   Navbar,
   NavItem,
   NavLink,
   Nav,
   Container,
-  Row,
-  Col,
+  Collapse,
+  Button,
 } from "reactstrap";
+import { Link, useLocation } from "react-router-dom";
 import "./SideBarDash.scss";
 import logoweb from "../../../Dashboard/img/ToyLogo.avif";
-import { Link } from "react-router-dom";
-import "../Dash-Pages/OverViewDash/OverViewDash.jsx";
-import "../Dash-Pages/BestSalers/BestSalers.jsx";
-import "../Dash-Pages/KPIs/KPIs.jsx";
-import "../Dash-Pages/Shipping/Shipping.jsx";
-import "../Dash-Pages/TopUser/TopUser.jsx";
 
 const SideBar = () => {
+  const location = useLocation();
+  const [isOpen, setIsOpen] = useState(false); // State để kiểm soát collapse
+
+  const toggle = () => setIsOpen(!isOpen); // Hàm toggle cho collapse
+
+  // Hàm để xử lý khi nav được chọn
+  const handleNavClick = () => {
+    if (isOpen) {
+      toggle(); // Thu gọn nếu đang mở
+    }
+  };
+
   return (
     <Navbar
       className="navbar-vertical fixed-left navbar-light bg-light navbar-custom"
@@ -35,60 +40,117 @@ const SideBar = () => {
             style={{ width: "100px", height: "auto" }}
           />
         </Container>
-        <hr className="my-3 text-danger" style={{ height: "3px" }} />
-        <Nav className="mb-md-1 flex-column" navbar>
-          {" "}
-          {/* Thêm flex-column vào đây */}
-          <NavItem className="active-pro active">
-            <Link
-              to="../Dash-Pages/OverViewDash/OverViewDash.jsx"
-              style={{ textDecoration: "none", color: "inherit" }}
+        <Button
+          color="link"
+          className="d-md-none" // Chỉ hiển thị trên màn hình nhỏ
+          onClick={toggle}
+        >
+          <i className="fas fa-bars"></i>
+        </Button>
+        <Collapse isOpen={isOpen} navbar>
+          <Nav className="mb-md-1 flex-column" navbar>
+            <NavItem
+              className={`active-pro ${
+                location.pathname === "/dashboard/overview" ? "active" : ""
+              }`}
+              style={{ marginBottom: "10px" }}
             >
-              <i
-                className="fas fa-tachometer-alt"
-                style={{ marginRight: "8px" }}
-              ></i>
-              TỔNG QUAN
-            </Link>
-          </NavItem>
-          <NavItem className="active-pro active">
-            <NavLink href="https://www.creative-tim.com/product/argon-dashboard-pro-react?ref=adr-admin-sidebar">
-              <i className="fas fa-star" style={{ marginRight: "8px" }}></i>
-              SẢN PHẨM BÁN CHẠY
-            </NavLink>
-          </NavItem>
-          <NavItem className="active-pro active">
-            <NavLink href="https://www.creative-tim.com/product/argon-dashboard-pro-react?ref=adr-admin-sidebar">
-              <i className="fas fa-clock" style={{ marginRight: "8px" }}></i>
-              KPIs
-            </NavLink>
-          </NavItem>
-          <NavItem className="active-pro active">
-            <NavLink href="https://www.creative-tim.com/product/argon-dashboard-pro-react?ref=adr-admin-sidebar">
-              <i className="fas fa-truck" style={{ marginRight: "8px" }}></i>
-              SẢN PHẨM ĐÃ GIAO
-            </NavLink>
-          </NavItem>
-          <NavItem className="active-pro active">
-            <NavLink href="https://www.creative-tim.com/product/argon-dashboard-pro-react?ref=adr-admin-sidebar">
-              <i className="fas fa-medal" style={{ marginRight: "8px" }}></i>
-              TOP NGƯỜI DÙNG
-            </NavLink>
-          </NavItem>
-        </Nav>
+              <Link
+                to="dashboard/overview"
+                style={{ textDecoration: "none", color: "inherit" }}
+                onClick={handleNavClick} // Gọi hàm khi click
+              >
+                <i
+                  className="fas fa-tachometer-alt"
+                  style={{ marginRight: "8px" }}
+                ></i>
+                TỔNG QUAN
+              </Link>
+            </NavItem>
+            <NavItem
+              className={`active-pro ${
+                location.pathname === "/dashboard/bestseller" ? "active" : ""
+              }`}
+              style={{ marginBottom: "10px" }}
+            >
+              <Link
+                to="dashboard/bestseller"
+                style={{ textDecoration: "none", color: "inherit" }}
+                onClick={handleNavClick} // Gọi hàm khi click
+              >
+                <i className="fas fa-star" style={{ marginRight: "8px" }}></i>
+                SẢN PHẨM BÁN CHẠY
+              </Link>
+            </NavItem>
+
+            <NavItem
+              className={`active-pro ${
+                location.pathname === "/dashboard/KPIs" ? "active" : ""
+              }`}
+              style={{ marginBottom: "10px" }}
+            >
+              <Link
+                to="dashboard/KPIs"
+                style={{ textDecoration: "none", color: "inherit" }}
+                onClick={handleNavClick} // Gọi hàm khi click
+              >
+                <i className="fas fa-clock" style={{ marginRight: "8px" }}></i>
+                KPIs
+              </Link>
+            </NavItem>
+
+            <NavItem
+              className={`active-pro ${
+                location.pathname === "/dashboard/shipping" ? "active" : ""
+              }`}
+              style={{ marginBottom: "10px" }}
+            >
+              <Link
+                to="dashboard/shipping"
+                style={{ textDecoration: "none", color: "inherit" }}
+                onClick={handleNavClick} // Gọi hàm khi click
+              >
+                <i className="fas fa-truck" style={{ marginRight: "8px" }}></i>
+                SẢN PHẨM ĐÃ GIAO
+              </Link>
+            </NavItem>
+
+            <NavItem
+              className={`active-pro ${
+                location.pathname === "/dashboard/top-user" ? "active" : ""
+              }`}
+              style={{ marginBottom: "10px" }}
+            >
+              <Link
+                to="dashboard/top-user"
+                style={{ textDecoration: "none", color: "inherit" }}
+                onClick={handleNavClick} // Gọi hàm khi click
+              >
+                <i className="fas fa-medal" style={{ marginRight: "8px" }}></i>
+                TOP NGƯỜI DÙNG
+              </Link>
+            </NavItem>
+          </Nav>
+        </Collapse>
 
         <hr className="my-3 text-danger" />
         <Nav className="mb-md-1" navbar>
-          <NavItem className="active-pro active">
-            <NavLink href="https://www.creative-tim.com/product/argon-dashboard-pro-react?ref=adr-admin-sidebar">
+          <NavItem className="active-pro">
+            <NavLink
+              href="https://www.creative-tim.com/product/argon-dashboard-pro-react?ref=adr-admin-sidebar"
+              style={{ textDecoration: "none", color: "inherit" }}
+            >
               <i className="fas fa-home" style={{ marginRight: "8px" }}></i>
               TRANG CHỦ
             </NavLink>
           </NavItem>
         </Nav>
         <Nav className="mb-md-1" navbar>
-          <NavItem className="active-pro active">
-            <NavLink href="https://www.creative-tim.com/product/argon-dashboard-pro-react?ref=adr-admin-sidebar">
+          <NavItem className="active-pro">
+            <NavLink
+              href="https://www.creative-tim.com/product/argon-dashboard-pro-react?ref=adr-admin-sidebar"
+              style={{ textDecoration: "none", color: "inherit" }}
+            >
               <i
                 className="fas fa-sign-out-alt"
                 style={{ marginRight: "8px" }}

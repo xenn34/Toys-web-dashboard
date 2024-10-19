@@ -1,6 +1,6 @@
 import React from "react";
 
-const BestSalers = () => {
+const BestSellers = () => {
   return (
     <div style={{ padding: "20px" }}>
       <h1>Sản phẩm bán chạy</h1>
@@ -12,4 +12,4 @@ const BestSalers = () => {
   );
 };
 
-export default BestSalers;
+export default BestSellers;
