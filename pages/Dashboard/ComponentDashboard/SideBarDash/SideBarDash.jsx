@@ -12,6 +12,12 @@ import {
 } from "reactstrap";
 import "./SideBarDash.scss";
 import logoweb from "../../../Dashboard/img/ToyLogo.avif";
+import { Link } from "react-router-dom";
+import "../Dash-Pages/OverViewDash/OverViewDash.jsx";
+import "../Dash-Pages/BestSalers/BestSalers.jsx";
+import "../Dash-Pages/KPIs/KPIs.jsx";
+import "../Dash-Pages/Shipping/Shipping.jsx";
+import "../Dash-Pages/TopUser/TopUser.jsx";
 
 const SideBar = () => {
   return (
@@ -30,42 +36,39 @@ const SideBar = () => {
           />
         </Container>
         <hr className="my-3 text-danger" style={{ height: "3px" }} />
-        <Nav className="mb-md-1" navbar>
+        <Nav className="mb-md-1 flex-column" navbar>
+          {" "}
+          {/* Thêm flex-column vào đây */}
           <NavItem className="active-pro active">
-            <NavLink href="https://www.creative-tim.com/product/argon-dashboard-pro-react?ref=adr-admin-sidebar">
+            <Link
+              to="../Dash-Pages/OverViewDash/OverViewDash.jsx"
+              style={{ textDecoration: "none", color: "inherit" }}
+            >
               <i
                 className="fas fa-tachometer-alt"
                 style={{ marginRight: "8px" }}
               ></i>
               TỔNG QUAN
-            </NavLink>
+            </Link>
           </NavItem>
-        </Nav>
-        <Nav className="mb-md-1" navbar>
           <NavItem className="active-pro active">
             <NavLink href="https://www.creative-tim.com/product/argon-dashboard-pro-react?ref=adr-admin-sidebar">
               <i className="fas fa-star" style={{ marginRight: "8px" }}></i>
               SẢN PHẨM BÁN CHẠY
             </NavLink>
           </NavItem>
-        </Nav>
-        <Nav className="mb-md-1" navbar>
           <NavItem className="active-pro active">
             <NavLink href="https://www.creative-tim.com/product/argon-dashboard-pro-react?ref=adr-admin-sidebar">
               <i className="fas fa-clock" style={{ marginRight: "8px" }}></i>
-              SẢN PHẨM ĐÃ BÁN
+              KPIs
             </NavLink>
           </NavItem>
-        </Nav>
-        <Nav className="mb-md-1" navbar>
           <NavItem className="active-pro active">
             <NavLink href="https://www.creative-tim.com/product/argon-dashboard-pro-react?ref=adr-admin-sidebar">
               <i className="fas fa-truck" style={{ marginRight: "8px" }}></i>
               SẢN PHẨM ĐÃ GIAO
             </NavLink>
           </NavItem>
-        </Nav>
-        <Nav className="mb-md-1" navbar>
           <NavItem className="active-pro active">
             <NavLink href="https://www.creative-tim.com/product/argon-dashboard-pro-react?ref=adr-admin-sidebar">
               <i className="fas fa-medal" style={{ marginRight: "8px" }}></i>
@@ -73,6 +76,7 @@ const SideBar = () => {
             </NavLink>
           </NavItem>
         </Nav>
+
         <hr className="my-3 text-danger" />
         <Nav className="mb-md-1" navbar>
           <NavItem className="active-pro active">
