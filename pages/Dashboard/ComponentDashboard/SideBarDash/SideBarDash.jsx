@@ -47,6 +47,7 @@ const SideBar = () => {
         >
           <i className="fas fa-bars"></i>
         </Button>
+        <hr className="my-3 text-danger" />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mb-md-1 flex-column" navbar>
             <NavItem
