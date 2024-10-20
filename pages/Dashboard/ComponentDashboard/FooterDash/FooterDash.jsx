@@ -10,7 +10,7 @@ const FooterDash = () => {
     >
       <Nav className="justify-content-start" style={{ display: "flex" }}>
         <NavItem className="nav-item" style={{ marginRight: "20px" }}>
-          <Link to="/link1" className="nav-link" style={{ color: "#fff" }}>
+          <Link to="/" className="nav-link" style={{ color: "#fff" }}>
             <i
               className="fa-regular fa-copyright"
               style={{ fontSize: "24px", marginRight: "5px" }}
@@ -20,7 +20,7 @@ const FooterDash = () => {
           </Link>
         </NavItem>
         <NavItem className="nav-item" style={{ marginRight: "20px" }}>
-          <Link to="/link2" className="nav-link" style={{ color: "#fff" }}>
+          <Link to="/" className="nav-link" style={{ color: "#fff" }}>
             <i
               className="fas fa-lock"
               style={{ fontSize: "24px", marginRight: "5px" }}

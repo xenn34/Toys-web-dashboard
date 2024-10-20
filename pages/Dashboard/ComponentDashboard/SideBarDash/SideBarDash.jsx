@@ -10,7 +10,7 @@ import {
 } from "reactstrap";
 import { Link, useLocation } from "react-router-dom";
 import "./SideBarDash.scss";
-import logoweb from "../../../Dashboard/img/ToyLogo.avif";
+import logo_web from "../../../Dashboard/img/ToyLogo.avif";
 
 const SideBar = () => {
   const location = useLocation();
@@ -18,7 +18,6 @@ const SideBar = () => {
 
   const toggle = () => setIsOpen(!isOpen); // Hàm toggle cho collapse
 
-  // Hàm để xử lý khi nav được chọn
   const handleNavClick = () => {
     if (isOpen) {
       toggle(); // Thu gọn nếu đang mở
@@ -34,7 +33,7 @@ const SideBar = () => {
         {/* Ảnh Logo */}
         <Container>
           <img
-            src={logoweb}
+            src={logo_web}
             alt="Logo"
             className="img-fluid"
             style={{ width: "100px", height: "auto" }}
