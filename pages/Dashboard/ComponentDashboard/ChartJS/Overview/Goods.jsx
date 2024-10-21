@@ -20,18 +20,18 @@ ChartJS.register(
   Legend
 );
 
-const RevenueBarChart = () => {
+const Goods = () => {
   const data = {
-    labels: ["Tuần 1", "Tuần 2", "Tuần 3", "Tuần 4"],
+    labels: ["Week 1", "Week 2", "Week 3", "Week 4"],
     datasets: [
       {
-        label: "Doanh thu (VNĐ)",
-        data: [5000000, 9000000, 3000000, 3000000],
+        label: "SỐ LƯỢNG HÀNG HÓA",
+        data: [50, 700, 1290, 2230],
         backgroundColor: [
-          "rgba(255, 99, 132, 0.9)",
-          "rgba(54, 162, 235, 0.9)",
-          "rgba(255, 206, 86, 0.9)",
-          "rgba(75, 192, 192, 0.9)",
+          "rgba(255, 99, 132, 0.5)", // Màu cột cho Week 1
+          "rgba(54, 162, 235, 0.5)", // Màu cột cho Week 2
+          "rgba(255, 206, 86, 0.5)", // Màu cột cho Week 3
+          "rgba(75, 192, 192, 0.5)", // Màu cột cho Week 4
         ],
         borderColor: [
           "rgba(255, 99, 132, 1)",
@@ -39,34 +39,29 @@ const RevenueBarChart = () => {
           "rgba(255, 206, 86, 1)",
           "rgba(75, 192, 192, 1)",
         ],
-        borderWidth: 2,
+        borderWidth: 1,
       },
     ],
   };
 
   const options = {
     responsive: true,
-    scales: {
-      y: {
-        beginAtZero: true,
+    plugins: {
+      legend: {
+        position: "top",
+      },
+      title: {
+        display: true,
       },
     },
   };
 
   return (
-    <div
-      style={{
-        backgroundColor: "#ffffff",
-        padding: "20px",
-        borderRadius: "8px",
-      }}
-    >
-      <h2 className="title">BIỂU ĐỒ DOANH THU THÁNG</h2>{" "}
-      {/* Áp dụng class title */}
-      <br />
+    <div>
+      <h2 className="title">BIỂU ĐỒ SỐ LƯỢNG HÀNG HÓA BÁN ĐƯỢC</h2>
       <Bar data={data} options={options} />
     </div>
   );
 };
 
-export default RevenueBarChart;
+export default Goods;

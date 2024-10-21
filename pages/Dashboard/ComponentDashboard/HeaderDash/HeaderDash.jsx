@@ -7,7 +7,13 @@ const HeaderDash = () => {
   return (
     <Container
       className="header-container bg-info"
-      style={{ borderRadius: "10px" }}
+      style={{
+        borderRadius: "10px",
+        position: "sticky", // Giữ header ở trên cùng khi cuộn
+        top: 0, // Vị trí cố định
+        zIndex: 1000, // Đảm bảo nằm trên các phần khác
+        marginBottom: "20px", // Thêm khoảng cách phía dưới header
+      }}
     >
       <Row className="align-items-center justify-content-between">
         <Col xs="12" md="6" className="text-left header-text">

@@ -90,3 +90,14 @@
   margin: 5px 0; /* Khoảng cách giữa các phần chữ */
   color: #fff; /* Màu chữ */
 }
+// styles.scss (hoặc file CSS mà bạn đang sử dụng cho HeaderDash)
+.header-fixed {
+  position: fixed; // Cố định vị trí
+  top: 0; // Ở đầu trang
+  left: 0; // Căn trái
+  width: 100%; // Chiếm toàn bộ chiều rộng
+  z-index: 1000; // Đảm bảo nằm trên các phần tử khác
+  background-color: #ffffff; // Màu nền
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 10px 20px;
+}

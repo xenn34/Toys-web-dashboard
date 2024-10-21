@@ -4,14 +4,19 @@ import FooterDash from "../../FooterDash/FooterDash";
 import { Container, Col, Row, Card, CardBody, CardTitle } from "reactstrap"; // Thêm các component cần thiết
 import { Routes, Route } from "react-router-dom";
 import RevenueBarChart from "../../ChartJS/Overview/Revenue";
+import Users from "../../ChartJS/Overview/Users";
+import Goods from "../../ChartJS/Overview/Goods";
+import DetailOfQuantity from "../../ChartJS/Overview/Piechart-Detail";
 
 const OverViewDash = () => {
   return (
-    <div style={{ padding: "2px" }}>
+    <div style={{ padding: "20px" }}>
+      {" "}
+      {/* Thêm padding để tạo không gian cho header */}
       <HeaderDash />
       <hr className="my-3 text-danger" />
-      {/* Nội dung Overview */}
       <Container>
+        {/* Nội dung Dashboard */}
         {/* Doanh thu */}
         <Row>
           <Col xs="12" md="4">
@@ -91,7 +96,7 @@ const OverViewDash = () => {
                 boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
               }}
             >
-              <RevenueBarChart />
+              <Users />
             </Container>
           </Col>
         </Row>
@@ -134,8 +139,15 @@ const OverViewDash = () => {
                 boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
               }}
             >
-              <RevenueBarChart />
+              <Goods />
             </Container>
+            <hr className="my-3 text-danger" />
+            <Row>
+              <h1>CHI TIẾT:</h1>
+              <Container>
+                <DetailOfQuantity />
+              </Container>
+            </Row>
           </Col>
         </Row>
         <hr className="my-3 text-danger" />
