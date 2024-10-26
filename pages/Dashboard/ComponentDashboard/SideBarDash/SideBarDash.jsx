@@ -14,13 +14,13 @@ import logo_web from "../../../Dashboard/img/ToyLogo.avif";
 
 const SideBar = () => {
   const location = useLocation();
-  const [isOpen, setIsOpen] = useState(false); // State để kiểm soát collapse
+  const [isOpen, setIsOpen] = useState(false);
 
-  const toggle = () => setIsOpen(!isOpen); // Hàm toggle cho collapse
+  const toggle = () => setIsOpen(!isOpen);
 
   const handleNavClick = () => {
     if (isOpen) {
-      toggle(); // Thu gọn nếu đang mở
+      toggle();
     }
   };
 
@@ -39,11 +39,7 @@ const SideBar = () => {
             style={{ width: "100px", height: "auto" }}
           />
         </Container>
-        <Button
-          color="link"
-          className="d-md-none" // Chỉ hiển thị trên màn hình nhỏ
-          onClick={toggle}
-        >
+        <Button color="link" className="d-md-none" onClick={toggle}>
           <i className="fas fa-bars"></i>
         </Button>
         <hr className="my-3 text-danger" />
@@ -95,23 +91,23 @@ const SideBar = () => {
                 onClick={handleNavClick} // Gọi hàm khi click
               >
                 <i className="fas fa-clock" style={{ marginRight: "8px" }}></i>
-                KPIs
+                KPI
               </Link>
             </NavItem>
 
             <NavItem
               className={`active-pro ${
-                location.pathname === "/dashboard/shipping" ? "active" : ""
+                location.pathname === "/dashboard/top-staff" ? "active" : ""
               }`}
               style={{ marginBottom: "10px" }}
             >
               <Link
-                to="dashboard/shipping"
+                to="dashboard/top-staff"
                 style={{ textDecoration: "none", color: "inherit" }}
-                onClick={handleNavClick} // Gọi hàm khi click
+                onClick={handleNavClick}
               >
                 <i className="fas fa-truck" style={{ marginRight: "8px" }}></i>
-                SẢN PHẨM ĐÃ GIAO
+                XẾP HẠNG NHÂN VIÊN
               </Link>
             </NavItem>
 

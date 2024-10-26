@@ -12,7 +12,7 @@ import {
 import OverViewDash from "./ComponentDashboard/Dash-Pages/OverViewDash/OverViewDash.jsx";
 import BestSellers from "./ComponentDashboard/Dash-Pages/BestSellers/BestSellers.jsx";
 import KPIs from "./ComponentDashboard/Dash-Pages/KPIs/KPIs.jsx";
-import Shipping from "./ComponentDashboard/Dash-Pages/Shipping/Shipping.jsx";
+import TopStaff from "./ComponentDashboard/Dash-Pages/TopStaff/TopStaff.jsx";
 import TopUser from "./ComponentDashboard/Dash-Pages/TopUser/TopUser.jsx";
 
 const Dashboard = () => {
@@ -27,11 +27,10 @@ const Dashboard = () => {
             <Route path="dashboard/overview" element={<OverViewDash />} />
             <Route path="dashboard/bestseller" element={<BestSellers />} />
             <Route path="dashboard/KPIs" element={<KPIs />} />
-            <Route path="dashboard/shipping" element={<Shipping />} />
+            <Route path="dashboard/top-staff" element={<TopStaff />} />
             <Route path="dashboard/top-user" element={<TopUser />} />
             <Route path="dashboard" element={<Navigate to="overview" />} />{" "}
             <Route path="/" element={<Navigate to="/dashboard/overview" />} />{" "}
-            {/* Mặc định overview */}
           </Routes>
         </Col>
       </Row>

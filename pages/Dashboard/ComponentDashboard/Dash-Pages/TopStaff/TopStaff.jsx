@@ -2,22 +2,21 @@ import React from "react";
 import HeaderDash from "../../HeaderDash/HeaderDash";
 import FooterDash from "../../FooterDash/FooterDash";
 import { Col, Row } from "reactstrap";
-import TopUsersTable from "../TopUser/TopUsersTable";
+import TopStaffTable from "../TopStaff/TopStaffTable.jsx";
 
-const TopUser = () => {
+const TopStaff = () => {
   return (
     <div style={{ padding: "2px" }}>
       <HeaderDash />
       <Row>
         {" "}
-        <h1 className="title">TOP 10 NGƯỜI DÙNG MUA SẮM</h1>
-        <TopUsersTable />
+        <h1 className="title">TOP 5 NHÂN VIÊN CÓ DOANH SỐ CAO NHẤT</h1>
+        <TopStaffTable />
       </Row>
       <Row></Row>
-
       <FooterDash />
     </div>
   );
 };
 
-export default TopUser;
+export default TopStaff;
