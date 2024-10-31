@@ -7,7 +7,7 @@ import TopUsersTable from "../TopUser/TopUsersTable";
 const TopUser = () => {
   return (
     <div style={{ padding: "2px" }}>
-      <HeaderDash />
+      {/* <HeaderDash /> */}
       <Row>
         {" "}
         <h1 className="title">TOP 10 NGƯỜI DÙNG MUA SẮM</h1>
@@ -15,7 +15,7 @@ const TopUser = () => {
       </Row>
       <Row></Row>
 
-      <FooterDash />
+      {/* <FooterDash /> */}
     </div>
   );
 };

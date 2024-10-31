@@ -12,7 +12,7 @@ const Dashboard = () => {
   return (
     <Container fluid>
       <Row>
-        <Col xs="12" md="3" className="bg-info p-3">
+        <Col xs="12" md="3" className="bg-warning p-3">
           <SideBar />
         </Col>
         <Col xs="12" md="9" className="bg-light p-3">
@@ -22,7 +22,8 @@ const Dashboard = () => {
             <Route path="KPIs" element={<KPIs />} />
             <Route path="top-staff" element={<TopStaff />} />
             <Route path="top-user" element={<TopUser />} />
-            <Route path="/" element={<Navigate to="overview" />} />
+            {/* Điều hướng mặc định */}
+            <Route path="*" element={<Navigate to="overview" />} />
           </Routes>
         </Col>
       </Row>

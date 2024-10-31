@@ -8,14 +8,14 @@ import TableBestSellers from "./tableBestSellers";
 const BestSellers = () => {
   return (
     <div style={{ padding: "2px" }}>
-      <HeaderDash />
+      {/* <HeaderDash /> */}
       <Container>
         <Row>
           <TableBestSellers />
         </Row>
         <Row></Row>
       </Container>
-      <FooterDash />
+      {/* <FooterDash /> */}
     </div>
   );
 };

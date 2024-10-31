@@ -1,13 +1,5 @@
 import React, { useState } from "react";
-import {
-  Navbar,
-  NavItem,
-  NavLink,
-  Nav,
-  Container,
-  Collapse,
-  Button,
-} from "reactstrap";
+import { Navbar, NavItem, Nav, Container, Collapse, Button } from "reactstrap";
 import { Link, useLocation } from "react-router-dom";
 import "./SideBarDash.scss";
 import logo_web from "../../../Dashboard/img/ToyLogo.avif";
@@ -52,9 +44,9 @@ const SideBar = () => {
               style={{ marginBottom: "10px" }}
             >
               <Link
-                to="dashboard/overview"
+                to="/dashboard/overview"
                 style={{ textDecoration: "none", color: "inherit" }}
-                onClick={handleNavClick} // Gọi hàm khi click
+                onClick={handleNavClick}
               >
                 <i
                   className="fas fa-tachometer-alt"
@@ -70,9 +62,9 @@ const SideBar = () => {
               style={{ marginBottom: "10px" }}
             >
               <Link
-                to="dashboard/bestseller"
+                to="/dashboard/bestseller"
                 style={{ textDecoration: "none", color: "inherit" }}
-                onClick={handleNavClick} // Gọi hàm khi click
+                onClick={handleNavClick}
               >
                 <i className="fas fa-star" style={{ marginRight: "8px" }}></i>
                 SẢN PHẨM BÁN CHẠY
@@ -86,9 +78,9 @@ const SideBar = () => {
               style={{ marginBottom: "10px" }}
             >
               <Link
-                to="dashboard/KPIs"
+                to="/dashboard/KPIs"
                 style={{ textDecoration: "none", color: "inherit" }}
-                onClick={handleNavClick} // Gọi hàm khi click
+                onClick={handleNavClick}
               >
                 <i className="fas fa-clock" style={{ marginRight: "8px" }}></i>
                 KPI
@@ -102,7 +94,7 @@ const SideBar = () => {
               style={{ marginBottom: "10px" }}
             >
               <Link
-                to="dashboard/top-staff"
+                to="/dashboard/top-staff"
                 style={{ textDecoration: "none", color: "inherit" }}
                 onClick={handleNavClick}
               >
@@ -118,9 +110,9 @@ const SideBar = () => {
               style={{ marginBottom: "10px" }}
             >
               <Link
-                to="dashboard/top-user"
+                to="/dashboard/top-user"
                 style={{ textDecoration: "none", color: "inherit" }}
-                onClick={handleNavClick} // Gọi hàm khi click
+                onClick={handleNavClick}
               >
                 <i className="fas fa-medal" style={{ marginRight: "8px" }}></i>
                 TOP NGƯỜI DÙNG
@@ -132,19 +124,19 @@ const SideBar = () => {
         <hr className="my-3 text-danger" />
         <Nav className="mb-md-1" navbar>
           <NavItem className="active-pro">
-            <NavLink
-              href="https://www.creative-tim.com/product/argon-dashboard-pro-react?ref=adr-admin-sidebar"
+            <Link
+              to="https://www.creative-tim.com/product/argon-dashboard-pro-react?ref=adr-admin-sidebar"
               style={{ textDecoration: "none", color: "inherit" }}
             >
               <i className="fas fa-home" style={{ marginRight: "8px" }}></i>
               TRANG CHỦ
-            </NavLink>
+            </Link>
           </NavItem>
         </Nav>
         <Nav className="mb-md-1" navbar>
           <NavItem className="active-pro">
-            <NavLink
-              href="https://www.creative-tim.com/product/argon-dashboard-pro-react?ref=adr-admin-sidebar"
+            <Link
+              to="https://www.creative-tim.com/product/argon-dashboard-pro-react?ref=adr-admin-sidebar"
               style={{ textDecoration: "none", color: "inherit" }}
             >
               <i
@@ -152,7 +144,7 @@ const SideBar = () => {
                 style={{ marginRight: "8px" }}
               ></i>
               ĐĂNG XUẤT
-            </NavLink>
+            </Link>
           </NavItem>
         </Nav>
       </Container>

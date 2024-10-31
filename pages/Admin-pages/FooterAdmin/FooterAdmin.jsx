@@ -21,16 +21,19 @@ const AdminFooter = () => {
       <Container>
         <div className="social-icons mb-3">
           <a href="https://facebook.com" className="text-decoration-none me-3">
-            <i className="fab fa-facebook fa-lg"></i>{" "}
+            <i className="fab fa-facebook fa-lg" style={{ color: "white" }}></i>
           </a>
           <a href="https://twitter.com" className="text-decoration-none me-3">
-            <i className="fab fa-twitter fa-lg"></i>
+            <i className="fab fa-twitter fa-lg" style={{ color: "white" }}></i>
           </a>
           <a href="https://linkedin.com" className="text-decoration-none me-3">
-            <i className="fab fa-linkedin fa-lg"></i>
+            <i className="fab fa-linkedin fa-lg" style={{ color: "white" }}></i>
           </a>
           <a href="https://instagram.com" className="text-decoration-none">
-            <i className="fab fa-instagram fa-lg"></i>
+            <i
+              className="fab fa-instagram fa-lg"
+              style={{ color: "white" }}
+            ></i>
           </a>
         </div>
 

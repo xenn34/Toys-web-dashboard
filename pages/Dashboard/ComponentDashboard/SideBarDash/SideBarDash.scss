@@ -1,13 +1,14 @@
-// SideBarDash.scss
 .sidebar-container {
   border-radius: 8px;
   overflow: hidden;
   background-color: #f8f9fa;
   padding: 10px;
 }
+
 .navbar-custom {
   border-radius: 10px;
 }
+
 .active-pro {
   color: rgba(0, 0, 0, 0.5); /* Màu nhạt cho nav mặc định */
   transition: color 0.3s ease; /* Hiệu ứng chuyển màu mượt mà */
@@ -16,12 +17,13 @@
 .active-pro.active {
   color: #000; /* Màu đậm hơn cho nav đang được chọn */
 }
-// SideBarDash.scss
+
 .navbar-vertical {
   .active {
     background-color: #e9ecef; // Màu nền cho nav đang hoạt động
   }
 }
+
 .active {
   background-color: #007bff; // Màu nền cho nav đang hoạt động
   color: white; // Màu chữ

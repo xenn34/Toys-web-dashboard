@@ -9,7 +9,7 @@ import "../KPIs/styleKPI.scss";
 const KPIs = () => {
   return (
     <div style={{ padding: "2px" }}>
-      <HeaderDash />
+      {/* <HeaderDash /> */}
       {/*KPIs tất cả sản phẩm */}
       <Row className="justify-content-center">
         <Col md="10">
@@ -24,7 +24,7 @@ const KPIs = () => {
           <TopBadEmployees />
         </Col>
       </Row>
-      <FooterDash />
+      {/* <FooterDash /> */}
     </div>
   );
 };

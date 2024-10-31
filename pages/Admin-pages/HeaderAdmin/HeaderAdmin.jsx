@@ -36,8 +36,8 @@ const AdminHeader = () => {
       expand="md"
       className="border-bottom shadow-sm px-3 rounded bg-info"
     >
-      <NavbarToggler onClick={toggleNavbar} style={{ border: "none" }}>
-        <i className="fas fa-bars" style={{ color: "white" }}></i>
+      <NavbarToggler onClick={toggleNavbar} className="navbar-toggler">
+        <span className="fas fa-bars"></span>
       </NavbarToggler>
 
       <Collapse isOpen={isOpen} navbar>

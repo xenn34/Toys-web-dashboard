@@ -13,7 +13,7 @@ const OverViewDash = () => {
     <div style={{ padding: "20px" }}>
       {" "}
       {/* Thêm padding để tạo không gian cho header */}
-      <HeaderDash />
+      {/* <HeaderDash /> */}
       <hr className="my-3 text-danger" />
       <Container>
         {/* Nội dung Dashboard */}
@@ -152,7 +152,7 @@ const OverViewDash = () => {
         </Row>
         <hr className="my-3 text-danger" />
       </Container>
-      <FooterDash />
+      {/* <FooterDash /> */}
     </div>
   );
 };
