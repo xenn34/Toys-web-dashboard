@@ -1,0 +1,15 @@
+.nav-link {
+  color: rgb(255, 255, 255) !important;
+  margin-right: 14px;
+  text-decoration: none;
+  transition: color 0.3s;
+
+  &:hover,
+  &.active {
+    color: rgb(0, 0, 0) !important;
+  }
+}
+
+.employee-name {
+  color: #fffafa;
+}
