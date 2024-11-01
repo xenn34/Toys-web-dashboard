@@ -1,0 +1,97 @@
+.sidebar-container {
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #f8f9fa;
+  padding: 10px;
+
+  @media (max-width: 768px) {
+    // Tablet styles
+    padding: 5px;
+  }
+
+  @media (max-width: 576px) {
+    // Mobile styles
+    padding: 2px;
+  }
+}
+
+.navbar-header {
+  background-color: #f8f9fa; // Background color for the header
+  padding: 0.5rem; // Padding for the header
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-custom {
+  border-radius: 10px;
+
+  @media (max-width: 768px) {
+    // Tablet styles
+    border-radius: 5px;
+  }
+
+  @media (max-width: 576px) {
+    // Mobile styles
+    border-radius: 2px;
+  }
+}
+
+.active-pro {
+  color: rgba(0, 0, 0, 0.5); /* Light color for default nav */
+  transition: color 0.3s ease; /* Smooth color transition */
+}
+
+.active-pro.active {
+  color: #000; /* Darker color for the active nav */
+}
+
+.navbar-vertical {
+  .active {
+    background-color: #e9ecef; // Background color for active nav
+  }
+}
+
+.active {
+  background-color: #007bff; // Background color for active nav
+  color: white; // Text color
+}
+
+.navbar-light .navbar-nav .nav-link {
+  color: black; // Text color for normal nav items
+}
+
+// Keyframes for the animation
+@keyframes moveAndScale {
+  0% {
+    transform: translateX(0) scale(1); // Start position
+  }
+  25% {
+    transform: translateX(20px) scale(1.1); // Move right and scale up
+  }
+  50% {
+    transform: translateX(-20px) scale(1); // Move left and return to normal size
+  }
+  75% {
+    transform: translateX(20px) scale(1.1); // Move right and scale up again
+  }
+  100% {
+    transform: translateX(0) scale(1); // Return to the original position
+  }
+}
+
+// Navbar custom styles
+.navbar-custom {
+  background-color: #f8f9fa; // Change background color as needed
+  padding: 1rem; // Adjust padding as needed
+
+  @media (max-width: 768px) {
+    // Tablet styles
+    padding: 0.5rem; // Less padding for tablets
+  }
+
+  @media (max-width: 576px) {
+    // Mobile styles
+    padding: 0.25rem; // Even less padding for mobile
+  }
+}

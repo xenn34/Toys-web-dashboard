@@ -1,0 +1,43 @@
+.sidebar-animation-container {
+  height: 100vh; // Kéo dài sidebar đến hết màn hình
+  background-color: #f8f9fa; // Màu nền cho sidebar
+
+  .icon-container {
+    display: flex; // Sử dụng flex để căn giữa
+    justify-content: center; // Căn giữa theo chiều ngang
+    align-items: center; // Căn giữa theo chiều dọc
+    height: 100%; // Đảm bảo icon ở giữa toàn bộ chiều cao của sidebar
+  }
+
+  .data-icon {
+    width: 100px; // Kích thước hình ảnh
+    height: 100px;
+    border-radius: 50%; // Hình tròn nếu cần
+    object-fit: cover; // Đảm bảo hình ảnh không bị méo
+  }
+
+  .animation-container {
+    h5 {
+      font-size: 2rem; // Kích thước chữ lớn hơn
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); // Đổ bóng cho chữ
+      margin-top: 20px; // Khoảng cách giữa icon và chữ
+      animation: slideInOut 2s ease-in-out infinite; // Thêm hiệu ứng animation liên tục
+    }
+  }
+}
+
+// Định nghĩa animation
+@keyframes slideInOut {
+  0% {
+    transform: translateY(0); // Bắt đầu tại vị trí bình thường
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(-10px); // Nâng lên một chút
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

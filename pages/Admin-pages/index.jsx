@@ -16,7 +16,7 @@ function AdminLayout() {
       </Row>
       <Row style={{ height: "calc(100vh - 120px)", overflowY: "auto" }}>
         <Routes>
-          <Route path="/home" element={<HomepageAdmin />} />
+          <Route path="/home/*" element={<HomepageAdmin />} />
           <Route path="/dashboard/*" element={<Dashboard />} />
           <Route path="/employees" element={<EmployeeTable />} />
           <Route path="/customers" element={<CustomersPage />} />
