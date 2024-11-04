@@ -1,0 +1,52 @@
+.card-container {
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+
+  .status-label {
+    display: inline-block;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+    border-radius: 5px;
+    color: #fff;
+    text-align: center;
+
+    &.in-stock {
+      background-color: #28a745; // Màu xanh
+    }
+
+    &.out-of-stock {
+      background-color: #dc3545; // Màu đỏ
+    }
+  }
+
+  .description {
+    font-size: 0.9rem;
+    color: #6c757d;
+  }
+
+  .product-image {
+    width: 200px;
+    height: auto;
+    object-fit: cover;
+    margin-right: auto;
+    border-radius: 10px;
+  }
+
+  .btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    &:hover {
+      background-color: #0056b3;
+      border-color: #004085;
+    }
+  }
+
+  .btn-danger {
+    background-color: #dc3545;
+    border-color: #dc3545;
+    &:hover {
+      background-color: #c82333;
+      border-color: #bd2130;
+    }
+  }
+}

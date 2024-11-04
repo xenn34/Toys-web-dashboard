@@ -2,7 +2,8 @@ import React from "react";
 import { Col, Row, Container, Table } from "reactstrap";
 import SidebarAnimation from "../SidebarAnimation/SidebarAnimation";
 
-// Dữ liệu mẫu cho danh sách nhân viên
+import AdminFooter from "../FooterAdmin/FooterAdmin";
+
 const employees = [
   { id: 1, name: "Nguyễn Văn A", position: "Quản lý", email: "a@example.com" },
   { id: 2, name: "Trần Thị B", position: "Nhân viên", email: "b@example.com" },
@@ -70,6 +71,9 @@ const EmployeeTable = () => {
             </Table>
           </Row>
         </Col>
+      </Row>
+      <Row>
+        <AdminFooter />
       </Row>
     </Container>
   );

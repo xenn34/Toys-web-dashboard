@@ -78,15 +78,6 @@ const AdminHeader = () => {
               KHÁCH HÀNG
             </Link>
           </NavItem>
-          <NavItem>
-            <Link
-              to="/reports"
-              className={`nav-link nav-text ${isActive("/reports")}`}
-              onClick={handleLinkClick}
-            >
-              BÁO CÁO
-            </Link>
-          </NavItem>
         </Nav>
       </Collapse>
 

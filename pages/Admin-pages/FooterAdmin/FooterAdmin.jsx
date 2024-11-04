@@ -20,32 +20,28 @@ const AdminFooter = () => {
     >
       <Container>
         <div className="social-icons mb-3">
-          <a href="https://facebook.com" className="text-decoration-none me-3">
-            <i className="fab fa-facebook fa-lg" style={{ color: "white" }}></i>
-          </a>
-          <a href="https://twitter.com" className="text-decoration-none me-3">
-            <i className="fab fa-twitter fa-lg" style={{ color: "white" }}></i>
-          </a>
-          <a href="https://linkedin.com" className="text-decoration-none me-3">
-            <i className="fab fa-linkedin fa-lg" style={{ color: "white" }}></i>
-          </a>
-          <a href="https://instagram.com" className="text-decoration-none">
-            <i
-              className="fab fa-instagram fa-lg"
-              style={{ color: "white" }}
-            ></i>
-          </a>
+          <i
+            className="fab fa-facebook fa-lg me-3"
+            style={{ color: "white" }}
+          ></i>
+          <i
+            className="fab fa-twitter fa-lg me-3"
+            style={{ color: "white" }}
+          ></i>
+          <i
+            className="fab fa-linkedin fa-lg me-3"
+            style={{ color: "white" }}
+          ></i>
+          <i className="fab fa-instagram fa-lg" style={{ color: "white" }}></i>
         </div>
 
         <p className="mb-1">&copy; {new Date().getFullYear()} NUTRI STORE</p>
-        <p className="mb-0">
-          <a
-            href="#"
-            className="text-decoration-none me-3"
-            onClick={togglePolicy}
-          >
-            Chính sách bảo mật
-          </a>
+        <p
+          className="mb-0"
+          onClick={togglePolicy}
+          style={{ cursor: "pointer" }}
+        >
+          Chính sách bảo mật
         </p>
 
         {showPolicy && (

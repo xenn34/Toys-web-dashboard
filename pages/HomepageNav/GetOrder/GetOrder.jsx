@@ -1,7 +1,13 @@
 import React from "react";
+import "./GetOrder.scss";
+import OrderCard from "./OrderCard/OrderCard";
 
 const OrderManagement = () => {
-  return <div>Duyệt Đơn</div>;
+  return (
+    <>
+      <OrderCard />
+    </>
+  );
 };
 
 export default OrderManagement;

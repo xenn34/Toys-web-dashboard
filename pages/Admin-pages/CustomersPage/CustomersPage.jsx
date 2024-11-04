@@ -4,6 +4,7 @@ import SidebarAnimation from "../SidebarAnimation/SidebarAnimation";
 import CustomerTable from "./CustomerTable";
 import CustomersDetail from "../CustomersPage/CustomerDetail";
 import "./CustomersPage.scss";
+import AdminFooter from "../FooterAdmin/FooterAdmin";
 
 const CustomersPage = () => {
   const [selectedCustomerId, setSelectedCustomerId] = useState(null);
@@ -41,6 +42,9 @@ const CustomersPage = () => {
             />
           )}
         </Col>
+      </Row>
+      <Row>
+        <AdminFooter />
       </Row>
     </Container>
   );

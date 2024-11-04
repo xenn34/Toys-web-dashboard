@@ -1,12 +1,48 @@
-import React from "react";
+import { React } from "react";
 import { Col, Row, Container } from "reactstrap";
+import "../ListProduct/styleListProducts.scss";
+import CardProduct from "./CardProduct/CardProduct";
 
 const ProductView = () => {
   return (
-    <Container>
-      <h1>Xem Sản Phẩm nè</h1>
-      <p>Danh sách các sản phẩm sẽ được hiển thị ở đây.</p>
-    </Container>
+    <>
+      <Container className="pt-3">
+        <CardProduct />
+      </Container>
+      <Container className="pt-3">
+        <CardProduct />
+      </Container>
+      <Container className="pt-3">
+        <CardProduct />
+      </Container>
+      <Container className="pt-3">
+        <CardProduct />
+      </Container>
+      <Container className="pt-3">
+        <CardProduct />
+      </Container>
+      <Container className="pt-3">
+        <CardProduct />
+      </Container>
+      <Container className="pt-3">
+        <CardProduct />
+      </Container>
+      <Container className="pt-3">
+        <CardProduct />
+      </Container>
+      <Container className="pt-3">
+        <CardProduct />
+      </Container>
+      <Container className="pt-3">
+        <CardProduct />
+      </Container>
+      <Container className="pt-3">
+        <CardProduct />
+      </Container>
+      <Container className="pt-3">
+        <CardProduct />
+      </Container>
+    </>
   );
 };
 

@@ -8,6 +8,8 @@ import KPIs from "./ComponentDashboard/Dash-Pages/KPIs/KPIs.jsx";
 import TopStaff from "./ComponentDashboard/Dash-Pages/TopStaff/TopStaff.jsx";
 import TopUser from "./ComponentDashboard/Dash-Pages/TopUser/TopUser.jsx";
 
+import AdminFooter from "../Admin-pages/FooterAdmin/FooterAdmin.jsx";
+
 const Dashboard = () => {
   return (
     <Container fluid>
@@ -26,6 +28,9 @@ const Dashboard = () => {
             <Route path="*" element={<Navigate to="overview" />} />
           </Routes>
         </Col>
+      </Row>
+      <Row>
+        <AdminFooter />
       </Row>
     </Container>
   );

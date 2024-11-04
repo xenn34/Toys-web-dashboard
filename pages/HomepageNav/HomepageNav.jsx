@@ -5,7 +5,7 @@ import UploadProduct from "../HomepageNav/UpToSale/UpToSale";
 import OrderManagement from "../HomepageNav/GetOrder/GetOrder";
 import Promotions from "../HomepageNav/FlashSale/FlashSale";
 import ReviewProduct from "../HomepageNav/Evaluation/Evaluation";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom"; // Thêm Navigate từ react-router-dom
 import "./HomepageNav.scss";
 
 function HomepageNav() {
@@ -20,8 +20,8 @@ function HomepageNav() {
         <Col xs="9">
           <Container className="bg-light" style={{ borderRadius: "10px" }}>
             <Routes>
-              <Route path="/" element={<ProductView />} />{" "}
-              {/* Đường dẫn mặc định */}
+              <Route path="*" element={<Navigate to="/home/products" />} />{" "}
+              {/* Chuyển hướng đến sản phẩm */}
               <Route path="products" element={<ProductView />} />
               <Route path="upload-products" element={<UploadProduct />} />
               <Route path="view-orders" element={<OrderManagement />} />
