@@ -1,92 +1,96 @@
 import React, { useState } from "react";
-import { Container } from "reactstrap";
+import {
+  Container,
+  Modal,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
+  Button,
+} from "reactstrap";
 import "../FooterAdmin/styleFooter.scss";
 
 const AdminFooter = () => {
-  const [showPolicy, setShowPolicy] = useState(false);
+  const [showModal, setShowModal] = useState(false);
 
-  const togglePolicy = () => {
-    setShowPolicy(!showPolicy);
+  const toggleModal = () => {
+    setShowModal(!showModal);
   };
 
   return (
-    <footer
-      className="text-left py-3 mt-auto bg-info"
-      style={{
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        color: "white",
-      }}
-    >
+    <footer className="text-left py-3 mt-auto">
       <Container>
         <div className="social-icons mb-3">
-          <i
-            className="fab fa-facebook fa-lg me-3"
-            style={{ color: "white" }}
-          ></i>
-          <i
-            className="fab fa-twitter fa-lg me-3"
-            style={{ color: "white" }}
-          ></i>
-          <i
-            className="fab fa-linkedin fa-lg me-3"
-            style={{ color: "white" }}
-          ></i>
-          <i className="fab fa-instagram fa-lg" style={{ color: "white" }}></i>
+          <a href="#" aria-label="Facebook">
+            <i className="fab fa-facebook fa-lg me-3"></i>
+          </a>
+          <a href="#" aria-label="Twitter">
+            <i className="fab fa-twitter fa-lg me-3"></i>
+          </a>
+          <a href="#" aria-label="LinkedIn">
+            <i className="fab fa-linkedin fa-lg me-3"></i>
+          </a>
+          <a href="#" aria-label="Instagram">
+            <i className="fab fa-instagram fa-lg"></i>
+          </a>
         </div>
 
         <p className="mb-1">&copy; {new Date().getFullYear()} NUTRI STORE</p>
         <p
-          className="mb-0"
-          onClick={togglePolicy}
+          className="mb-0 policy-link"
+          onClick={toggleModal}
           style={{ cursor: "pointer" }}
         >
-          Chính sách bảo mật
+          CHÍNH SÁCH BẢO MẬT
         </p>
 
-        {showPolicy && (
-          <div className="policy-content mt-3">
-            <h5>Chính Sách Bảo Mật</h5>
-            <ul className="list-unstyled">
+        <Modal isOpen={showModal} toggle={toggleModal} className="modal-custom">
+          <ModalHeader toggle={toggleModal}>Chính Sách Bảo Mật</ModalHeader>
+          <ModalBody>
+            <ol>
               <li>
-                1. Chúng tôi thu thập thông tin cá nhân của bạn khi bạn đăng ký
-                tài khoản.
+                Chúng tôi thu thập thông tin cá nhân của bạn khi bạn đăng ký tài
+                khoản.
               </li>
               <li>
-                2. Thông tin của bạn sẽ được bảo mật và không chia sẻ cho bên
-                thứ ba.
+                Thông tin của bạn sẽ được bảo mật và không chia sẻ cho bên thứ
+                ba.
               </li>
               <li>
-                3. Chúng tôi có thể sử dụng cookie để cải thiện trải nghiệm
-                người dùng.
+                Chúng tôi có thể sử dụng cookie để cải thiện trải nghiệm người
+                dùng.
               </li>
               <li>
-                4. Bạn có quyền truy cập và chỉnh sửa thông tin cá nhân của mình
+                Bạn có quyền truy cập và chỉnh sửa thông tin cá nhân của mình
                 bất cứ lúc nào.
               </li>
               <li>
-                5. Chúng tôi cam kết bảo vệ thông tin của bạn khỏi các truy cập
+                Chúng tôi cam kết bảo vệ thông tin của bạn khỏi các truy cập
                 trái phép.
               </li>
               <li>
-                6. Mọi thay đổi về chính sách bảo mật sẽ được thông báo đến bạn.
+                Mọi thay đổi về chính sách bảo mật sẽ được thông báo đến bạn.
               </li>
               <li>
-                7. Thời gian lưu trữ thông tin cá nhân của bạn sẽ tuân thủ theo
-                quy định pháp luật.
+                Thời gian lưu trữ thông tin cá nhân của bạn sẽ tuân thủ theo quy
+                định pháp luật.
               </li>
               <li>
-                8. Bạn có quyền yêu cầu xóa thông tin cá nhân của mình bất cứ
-                lúc nào.
+                Bạn có quyền yêu cầu xóa thông tin cá nhân của mình bất cứ lúc
+                nào.
               </li>
               <li>
-                9. Chúng tôi sẽ thông báo cho bạn nếu có bất kỳ vi phạm nào liên
+                Chúng tôi sẽ thông báo cho bạn nếu có bất kỳ vi phạm nào liên
                 quan đến dữ liệu của bạn.
               </li>
-              <li>10. Chính sách bảo mật này có thể được cập nhật định kỳ.</li>
-            </ul>
-          </div>
-        )}
+              <li>Chính sách bảo mật này có thể được cập nhật định kỳ.</li>
+            </ol>
+          </ModalBody>
+          <ModalFooter>
+            <Button color="secondary" onClick={toggleModal}>
+              Đóng
+            </Button>
+          </ModalFooter>
+        </Modal>
       </Container>
     </footer>
   );

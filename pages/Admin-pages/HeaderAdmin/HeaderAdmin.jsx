@@ -12,6 +12,7 @@ import {
   Collapse,
 } from "reactstrap";
 import admin_pic from "../../Dashboard/img/Shin.jfif";
+import logo from "../img/image.png";
 import "./HeaderAdmin.scss";
 
 const AdminHeader = () => {
@@ -36,9 +37,17 @@ const AdminHeader = () => {
       expand="md"
       className="border-bottom shadow-sm px-3 rounded bg-info"
     >
-      <NavbarToggler onClick={toggleNavbar} className="navbar-toggler">
-        <span className="fas fa-bars"></span>
-      </NavbarToggler>
+      <div className="d-flex align-items-center">
+        <img
+          src={logo}
+          alt="Logo"
+          className="logo"
+          style={{ height: "50px", marginRight: "10px" }}
+        />
+        <NavbarToggler onClick={toggleNavbar} className="navbar-toggler">
+          <span className="fas fa-bars"></span>
+        </NavbarToggler>
+      </div>
 
       <Collapse isOpen={isOpen} navbar>
         <Nav className="me-auto" navbar>

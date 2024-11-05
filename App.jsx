@@ -7,8 +7,8 @@ import HomepageNav from "./pages/HomepageNav/HomepageNav";
 import ShoppingCart from "./components/ShoppingCart/ShoppingCart";
 
 function App() {
-  return <ShoppingCart />;
   return <AdminLayout />;
+  return <ShoppingCart />;
 }
 
 export default App;

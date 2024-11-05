@@ -1,0 +1,144 @@
+.card-product {
+  .product-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .product-details {
+    display: flex;
+    align-items: flex-start;
+
+    .image-container {
+      img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 5px;
+        display: block; /* Căn giữa ảnh */
+        margin: 0 auto; /* Căn giữa */
+      }
+    }
+
+    .info-container {
+      .product-name {
+        font-weight: bold;
+        font-size: 18px;
+      }
+
+      .product-type {
+        color: #666;
+        font-size: 14px;
+      }
+    }
+  }
+
+  .quantity-controls {
+    display: flex;
+    justify-content: flex-start;
+
+    .quantity-button {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      padding: 5px 10px;
+      margin: 0 5px;
+
+      &:hover {
+        background-color: #0056b3;
+      }
+    }
+
+    .quantity {
+      font-size: 16px;
+      margin: 0 5px;
+    }
+  }
+
+  .product-price,
+  .product-total {
+    font-size: 16px;
+    font-weight: bold;
+    text-align: left;
+  }
+
+  // Responsive Styles
+  @media (max-width: 768px) {
+    .product-container {
+      flex-direction: column; /* Đặt chiều dọc cho thiết bị nhỏ */
+      align-items: center; /* Căn giữa tất cả các phần tử */
+    }
+
+    .product-details {
+      .info-container {
+        text-align: center; /* Căn giữa nội dung thông tin */
+      }
+
+      .image-container {
+        margin-bottom: 10px; /* Khoảng cách giữa ảnh và thông tin */
+      }
+    }
+
+    .product-name,
+    .quantity-controls,
+    .product-price,
+    .product-total {
+      text-align: center; /* Căn giữa các tiêu đề */
+      width: 100%; /* Đảm bảo chiều rộng đầy đủ */
+    }
+  }
+}
+.card-product {
+  // Existing styles...
+
+  .mobile-price-info {
+    display: none; // Ẩn mặc định
+
+    @media (max-width: 768px) {
+      display: block; // Hiển thị trên màn hình nhỏ
+      margin-left: 10px; // Căn trái với khoảng cách 10px
+    }
+  }
+
+  @media (max-width: 768px) {
+    .product-price,
+    .product-total {
+      display: none; // Ẩn giá và tổng cộng
+    }
+  }
+}
+.card-product {
+  // Existing styles...
+
+  .mobile-price-info {
+    display: none; // Ẩn mặc định
+
+    @media (max-width: 768px) {
+      display: block; // Hiển thị trên màn hình nhỏ
+      margin-left: 10px; // Căn trái với khoảng cách 10px
+
+      p {
+        font-weight: bold; // In đậm chữ
+        margin: 0; // Loại bỏ margin để căn chỉnh chính xác
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    .product-price,
+    .product-total {
+      display: none; // Ẩn giá và tổng cộng
+    }
+  }
+}
+.card-product {
+  .info-container {
+    @media (max-width: 768px) {
+      .product-name,
+      .product-type {
+        padding-left: 20px; // Thêm khoảng cách lề trái
+        padding-right: 10px; // Thêm khoảng cách lề phải (nếu cần)
+      }
+    }
+  }
+}

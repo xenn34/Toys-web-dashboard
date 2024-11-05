@@ -1,5 +1,10 @@
 footer {
   padding: 10px 0;
+  background-color: #ffffff; /* Đổi nền thành trắng */
+  color: black; /* Đổi màu chữ thành đen */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Đổ bóng phía dưới */
+  border-radius: 0; /* Xóa bo góc */
+  border-top: 2px solid #a29b9b; /* Thêm viền phía trên với màu xám nhạt */
 }
 
 .social-icons a {
@@ -9,4 +14,38 @@ footer {
 
 .social-icons a:hover {
   color: #ccc;
+}
+
+/* Đổi màu chữ khi hover vào "CHÍNH SÁCH BẢO MẬT" */
+.policy-link {
+  transition: color 0.3s;
+}
+
+.policy-link:hover {
+  color: red; /* Đổi màu chữ thành đỏ khi hover */
+}
+
+/* Modal */
+.modal-custom {
+  max-width: 600px; /* Chiều rộng tối đa của modal */
+  width: 90%; /* Đảm bảo modal responsive */
+}
+
+@media (max-width: 768px) {
+  footer {
+    text-align: center; /* Căn giữa nội dung footer */
+  }
+
+  .social-icons {
+    justify-content: center; /* Căn giữa các biểu tượng xã hội */
+  }
+}
+.social-icons a {
+  font-size: 24px;
+  color: rgb(2, 2, 2); /* Màu mặc định */
+  transition: color 0.3s; /* Thêm hiệu ứng chuyển màu */
+}
+
+.social-icons a:hover {
+  color: #17a2b8; /* Màu text-info của Bootstrap */
 }
