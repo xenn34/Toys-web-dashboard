@@ -1,7 +1,20 @@
+import React from "react";
 import { Container, Col, Row } from "reactstrap";
+import "./ShoppingCart.scss";
+import CardProduct from "./CardProduct/CardProduct";
 
-function ShoppingCart() {
-  return <Container>Đây là giỏ hàng</Container>;
-}
+const ShoppingCart = () => {
+  return (
+    <Container>
+      <Row>
+        <CardProduct />
+      </Row>
+      <Row>
+        <Col>Tổng cộng</Col>
+        <Col>Thanh toán</Col>
+      </Row>
+    </Container>
+  );
+};
 
 export default ShoppingCart;

@@ -9,39 +9,6 @@ const ProductView = () => {
       <Container className="pt-3">
         <CardProduct />
       </Container>
-      <Container className="pt-3">
-        <CardProduct />
-      </Container>
-      <Container className="pt-3">
-        <CardProduct />
-      </Container>
-      <Container className="pt-3">
-        <CardProduct />
-      </Container>
-      <Container className="pt-3">
-        <CardProduct />
-      </Container>
-      <Container className="pt-3">
-        <CardProduct />
-      </Container>
-      <Container className="pt-3">
-        <CardProduct />
-      </Container>
-      <Container className="pt-3">
-        <CardProduct />
-      </Container>
-      <Container className="pt-3">
-        <CardProduct />
-      </Container>
-      <Container className="pt-3">
-        <CardProduct />
-      </Container>
-      <Container className="pt-3">
-        <CardProduct />
-      </Container>
-      <Container className="pt-3">
-        <CardProduct />
-      </Container>
     </>
   );
 };

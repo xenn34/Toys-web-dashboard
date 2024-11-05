@@ -23,3 +23,25 @@
     align-items: center;
   }
 }
+.order-modal {
+  .modal-header {
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #ddd;
+    h5 {
+      font-weight: bold;
+    }
+  }
+
+  .modal-body {
+    padding: 20px;
+  }
+
+  .modal-footer {
+    border-top: 1px solid #ddd;
+  }
+
+  .btn-secondary {
+    background-color: #6c757d;
+    border-color: #6c757d;
+  }
+}

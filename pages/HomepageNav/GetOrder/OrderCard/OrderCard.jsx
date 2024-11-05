@@ -11,6 +11,7 @@ import {
   ModalFooter,
 } from "reactstrap";
 import OrderCart from "../OrderCart/OrderCart";
+import ProductCardCart from "../OrderCart/ProductCard-Cart/ProductCard-Cart";
 
 const OrderCard = () => {
   const [modal, setModal] = useState(false);
@@ -58,14 +59,14 @@ const OrderCard = () => {
       </Row>
 
       {/* Modal */}
-      <Modal isOpen={modal} toggle={toggleModal}>
-        <ModalHeader toggle={toggleModal}>Chi Tiết Đơn Hàng</ModalHeader>
+      <Modal isOpen={modal} toggle={toggleModal} className="order-modal">
+        <ModalHeader toggle={toggleModal}>Chi tiết đơn hàng</ModalHeader>
         <ModalBody>
-          <OrderCart />
+          <ProductCardCart />
         </ModalBody>
         <ModalFooter>
           <Button color="secondary" onClick={toggleModal}>
-            Đóng
+            Duyệt
           </Button>
         </ModalFooter>
       </Modal>
