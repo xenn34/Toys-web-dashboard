@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Navbar, NavItem, Nav, Container, Collapse, Button } from "reactstrap";
 import { Link, useLocation } from "react-router-dom";
 import "./SidebarHomepage.scss";
@@ -7,6 +7,7 @@ import logo_web from "../../Dashboard/img/ToyLogo.avif";
 const SidebarHomepage = () => {
   const location = useLocation();
   const [isOpen, setIsOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
   const toggle = () => setIsOpen(!isOpen);
 
@@ -16,24 +17,47 @@ const SidebarHomepage = () => {
     }
   };
 
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    // Clean up the event listener
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   return (
     <Navbar
       className="navbar-vertical fixed-left navbar-light bg-light navbar-custom"
       expand="md"
     >
       <Container fluid>
-        <Container>
+        <div className="d-flex align-items-center">
+          {/* Nút 3 gạch */}
+          <Button color="link" className="d-md-none" onClick={toggle}>
+            <i className="fas fa-bars"></i>
+          </Button>
+
+          {/* Hiển thị logo chỉ trên màn hình nhỏ */}
           <img
             src={logo_web}
             alt="Logo"
-            className="img-fluid"
-            style={{ width: "100px", height: "auto" }}
+            className="img-fluid d-md-none"
+            style={{ width: "50px", height: "auto", marginLeft: "10px" }}
           />
-        </Container>
-        <Button color="link" className="d-md-none" onClick={toggle}>
-          <i className="fas fa-bars"></i>
-        </Button>
-        <hr className="my-3 text-danger" />
+        </div>
+        <img
+          src={logo_web}
+          alt="Logo"
+          className="img-fluid d-none d-md-block"
+          style={{ width: "100px", height: "auto", margin: "0 10px" }}
+        />
+        {!isMobile && <hr className="my-3 text-danger" />}{" "}
+        {/* Chỉ hiển thị đường gạch ngang nếu không phải mobile */}
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mb-md-1 flex-column" navbar>
             <NavItem
