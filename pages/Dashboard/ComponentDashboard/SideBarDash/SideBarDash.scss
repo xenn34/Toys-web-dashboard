@@ -1,12 +1,5 @@
 .sidebar-container {
-  border-radius: 8px;
-  overflow: hidden;
-  background-color: #f8f9fa;
-  padding: 10px;
-}
-
-.navbar-custom {
-  border-radius: 10px;
+  border-radius: 10px !important; /* Bo góc 10px cho sidebar */
 }
 
 .active-pro {
@@ -18,17 +11,11 @@
   color: #000; /* Màu đậm hơn cho nav đang được chọn */
 }
 
-.navbar-vertical {
-  .active {
-    background-color: #e9ecef; // Màu nền cho nav đang hoạt động
-  }
-}
-
 .active {
-  background-color: #007bff; // Màu nền cho nav đang hoạt động
-  color: white; // Màu chữ
+  background-color: #007bff; /* Màu nền cho nav đang hoạt động */
+  color: white; /* Màu chữ */
 }
 
 .navbar-light .navbar-nav .nav-link {
-  color: black; // Màu chữ cho các nav bình thường
+  color: black; /* Màu chữ cho các nav bình thường */
 }

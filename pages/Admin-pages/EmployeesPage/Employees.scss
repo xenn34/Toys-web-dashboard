@@ -1,0 +1,53 @@
+/* Employees.scss */
+
+/* Đảm bảo sử dụng flexbox cho Row và các cột con */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* Đảm bảo Sidebar luôn ở bên trái */
+.sidebar-animation {
+  order: 0; /* Đảm bảo Sidebar nằm ở bên trái */
+  width: 100%; /* Cho phép Sidebar chiếm toàn bộ chiều rộng trên màn hình nhỏ */
+}
+
+/* Màn hình PC */
+@media (min-width: 1024px) {
+  .sidebar-animation {
+    order: 0; /* Sidebar nằm ở bên trái */
+    width: 25%; /* Sidebar chiếm 1/4 chiều rộng */
+  }
+
+  .col-content {
+    width: 75%; /* Nội dung chiếm 3/4 chiều rộng */
+  }
+}
+
+/* Màn hình Tablet và Mobile */
+@media (max-width: 1024px) {
+  .sidebar-animation {
+    order: 0; /* Sidebar lên trên */
+    width: 100%; /* Sidebar chiếm toàn bộ chiều rộng */
+  }
+
+  .col-content {
+    width: 100%; /* Nội dung chiếm toàn bộ chiều rộng */
+  }
+
+  /* Tạo khu vực cuộn cho bảng ở màn hình nhỏ */
+  .table-responsive {
+    overflow-x: auto; /* Cho phép cuộn ngang */
+    -webkit-overflow-scrolling: touch; /* Cho phép cuộn mượt mà trên thiết bị di động */
+  }
+
+  table {
+    width: 100%; /* Bảng chiếm toàn bộ chiều rộng */
+    table-layout: auto; /* Không cố định cột để tự động điều chỉnh */
+  }
+
+  th,
+  td {
+    white-space: nowrap; /* Đảm bảo không bị cắt chữ */
+  }
+}

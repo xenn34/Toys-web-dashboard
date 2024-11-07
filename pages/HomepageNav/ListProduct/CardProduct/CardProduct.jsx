@@ -67,28 +67,36 @@ const CardProduct = () => {
           </Row>
           <Row>
             <Col className="pt-2 d-flex align-items-center">
-              <strong>Trạng thái:</strong>
-              <span className="ms-2">
-                <span
-                  className={`status-label ${
-                    productData.inStock ? "in-stock" : "out-of-stock"
-                  }`}
-                >
-                  {productData.inStock ? "Còn hàng" : "Hết hàng"}
+              <div>
+                {" "}
+                {/* div trạng thái */}
+                <strong>Trạng thái:</strong>
+                <span className="ms-2">
+                  <span
+                    className={`status-label ${
+                      productData.inStock ? "in-stock" : "out-of-stock"
+                    }`}
+                  >
+                    {productData.inStock ? "Còn hàng" : "Hết hàng"}
+                  </span>
                 </span>
-              </span>
-              <span className="mx-2">|</span> {/* Gạch dọc */}
-              <Button color="primary" size="sm" onClick={toggleModal}>
-                Chỉnh sửa thông tin
-              </Button>
-              <Button
-                color="danger"
-                size="sm"
-                className="ms-2"
-                onClick={toggleConfirmDeleteModal}
-              >
-                Xóa sản phẩm
-              </Button>
+                <span className="mx-2">|</span> {/* Gạch dọc */}
+              </div>
+              <div className="action-buttons">
+                {" "}
+                {/* div button */}
+                <Button color="primary" size="sm" onClick={toggleModal}>
+                  Chỉnh sửa thông tin
+                </Button>
+                <Button
+                  color="danger"
+                  size="sm"
+                  className="ms-2"
+                  onClick={toggleConfirmDeleteModal}
+                >
+                  Xóa sản phẩm
+                </Button>
+              </div>
             </Col>
           </Row>
         </Col>

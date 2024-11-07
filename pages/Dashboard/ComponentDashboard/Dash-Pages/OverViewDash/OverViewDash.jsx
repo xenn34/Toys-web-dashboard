@@ -1,25 +1,20 @@
 import React from "react";
-import HeaderDash from "../../HeaderDash/HeaderDash";
-import FooterDash from "../../FooterDash/FooterDash";
-import { Container, Col, Row, Card, CardBody, CardTitle } from "reactstrap"; // Thêm các component cần thiết
-import { Routes, Route } from "react-router-dom";
+import { Container, Col, Row, Card, CardBody, CardTitle } from "reactstrap";
 import RevenueBarChart from "../../ChartJS/Overview/Revenue";
 import Users from "../../ChartJS/Overview/Users";
 import Goods from "../../ChartJS/Overview/Goods";
 import DetailOfQuantity from "../../ChartJS/Overview/Piechart-Detail";
 
+import "./OverViewDash.scss";
+
 const OverViewDash = () => {
   return (
     <div style={{ padding: "20px" }}>
-      {" "}
-      {/* Thêm padding để tạo không gian cho header */}
-      {/* <HeaderDash /> */}
       <hr className="my-3 text-danger" />
       <Container>
-        {/* Nội dung Dashboard */}
         {/* Doanh thu */}
         <Row>
-          <Col xs="12" md="4">
+          <Col xs="12" md="4" lg="3">
             <Card className="card-stats mb-4 mb-xl-0">
               <CardBody>
                 <Row>
@@ -46,15 +41,8 @@ const OverViewDash = () => {
               </CardBody>
             </Card>
           </Col>
-          <Col xs="12" md="8">
-            <Container
-              style={{
-                backgroundColor: "#ffffff",
-                borderRadius: "10px",
-                padding: "20px",
-                boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
-              }}
-            >
+          <Col xs="12" md="8" lg="9">
+            <Container className="chart-container">
               <RevenueBarChart />
             </Container>
           </Col>
@@ -62,7 +50,7 @@ const OverViewDash = () => {
         <hr className="my-3 text-danger" />
         {/* Người dùng */}
         <Row>
-          <Col xs="12" md="4">
+          <Col xs="12" md="4" lg="3">
             <Card className="card-stats mb-4 mb-xl-0">
               <CardBody>
                 <Row>
@@ -87,15 +75,8 @@ const OverViewDash = () => {
               </CardBody>
             </Card>
           </Col>
-          <Col xs="12" md="8">
-            <Container
-              style={{
-                backgroundColor: "#ffffff",
-                borderRadius: "10px",
-                padding: "20px",
-                boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
-              }}
-            >
+          <Col xs="12" md="8" lg="9">
+            <Container className="chart-container">
               <Users />
             </Container>
           </Col>
@@ -103,7 +84,7 @@ const OverViewDash = () => {
         <hr className="my-3 text-danger" />
         {/* Hàng hóa */}
         <Row>
-          <Col xs="12" md="4">
+          <Col xs="12" md="4" lg="3">
             <Card className="card-stats mb-4 mb-xl-0">
               <CardBody>
                 <Row>
@@ -130,29 +111,19 @@ const OverViewDash = () => {
               </CardBody>
             </Card>
           </Col>
-          <Col xs="12" md="8">
-            <Container
-              style={{
-                backgroundColor: "#ffffff",
-                borderRadius: "10px",
-                padding: "20px",
-                boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
-              }}
-            >
+          <Col xs="12" md="8" lg="9">
+            <Container className="chart-container">
               <Goods />
             </Container>
             <hr className="my-3 text-danger" />
             <Row>
-              <h1>CHI TIẾT:</h1>
               <Container>
                 <DetailOfQuantity />
               </Container>
             </Row>
           </Col>
         </Row>
-        <hr className="my-3 text-danger" />
       </Container>
-      {/* <FooterDash /> */}
     </div>
   );
 };

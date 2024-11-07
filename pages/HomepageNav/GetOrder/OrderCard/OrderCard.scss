@@ -22,7 +22,58 @@
     display: flex;
     align-items: center;
   }
+
+  // Responsive styles
+  @media (min-width: 1024px) {
+    // PC >= 1024px
+    .order-card {
+      padding: 1.5rem; // Larger padding for PC
+    }
+
+    .row {
+      margin-bottom: 1.5rem; // Larger spacing for PC
+    }
+
+    .col {
+      font-size: 1.2rem; // Increase font size for PC
+    }
+  }
+
+  @media (min-width: 740px) and (max-width: 1024px) {
+    // Tablet: >= 740px and < 1024px
+    .order-card {
+      padding: 1.2rem; // Slightly reduced padding for tablet
+    }
+
+    .row {
+      margin-bottom: 1.2rem;
+    }
+
+    .col {
+      font-size: 1.1rem; // Slightly larger font for tablet
+    }
+  }
+
+  @media (max-width: 739px) {
+    // Mobile: < 740px
+    .order-card {
+      padding: 0.8rem; // Smaller padding for mobile
+    }
+
+    .row {
+      margin-bottom: 0.8rem;
+    }
+
+    .col {
+      font-size: 1rem; // Adjust font size for mobile
+    }
+
+    .modal-body {
+      padding: 15px; // Adjust modal padding for smaller screens
+    }
+  }
 }
+
 .order-modal {
   .modal-header {
     background-color: #f8f9fa;

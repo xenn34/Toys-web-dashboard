@@ -43,9 +43,35 @@
 }
 
 // Responsive styles
-@media (max-width: 576px) {
+
+// PC (>= 1024px)
+@media (min-width: 1024px) {
   .upload-product-container {
+    max-width: 900px; // Giới hạn độ rộng cho PC lớn
+    padding: 40px;
+  }
+
+  button {
+    padding: 12px;
+  }
+}
+
+// Tablet (>= 740px và < 1024px)
+@media (min-width: 740px) and (max-width: 1023px) {
+  .upload-product-container {
+    max-width: 700px; // Giới hạn độ rộng cho tablet
+    padding: 30px;
+  }
+
+  button {
     padding: 10px;
+  }
+}
+
+// Mobile (< 740px)
+@media (max-width: 739px) {
+  .upload-product-container {
+    padding: 15px;
   }
 
   button {

@@ -5,11 +5,12 @@ import CardProduct from "./CardProduct/CardProduct";
 
 const ProductView = () => {
   return (
-    <>
-      <Container className="pt-3">
+    <Container>
+      <h2 className="title pt-3 pb-0">DANH SÁCH SẢN PHẨM</h2>
+      <div className="pt-3 pb-3">
         <CardProduct />
-      </Container>
-    </>
+      </div>
+    </Container>
   );
 };
 

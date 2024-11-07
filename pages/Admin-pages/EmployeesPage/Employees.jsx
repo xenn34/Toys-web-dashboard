@@ -1,8 +1,8 @@
 import React from "react";
 import { Col, Row, Container, Table } from "reactstrap";
 import SidebarAnimation from "../SidebarAnimation/SidebarAnimation";
-
 import AdminFooter from "../FooterAdmin/FooterAdmin";
+import "./Employees.scss";
 
 const employees = [
   { id: 1, name: "Nguyễn Văn A", position: "Quản lý", email: "a@example.com" },
@@ -41,34 +41,42 @@ const EmployeeTable = () => {
   return (
     <Container>
       <Row>
-        <Col xs="12" md="3">
+        <Col xs="12" md="3" className="sidebar-animation bg-light pt-3 pb-3">
           <SidebarAnimation />
         </Col>
-        <Col xs="12" md="9">
+        <Col xs="12" md="9" className="col-content bg-light">
           <Row className="mb-1 mt-3">
             <h1 className="title">Danh sách Nhân Viên</h1>
           </Row>
           <Row>
-            <Table striped>
-              <thead>
-                <tr>
-                  <th>ID</th>
-                  <th>Tên</th>
-                  <th>Chức Vụ</th>
-                  <th>Email</th>
-                </tr>
-              </thead>
-              <tbody>
-                {employees.map((employee) => (
-                  <tr key={employee.id}>
-                    <td>{employee.id}</td>
-                    <td>{employee.name}</td>
-                    <td>{employee.position}</td>
-                    <td>{employee.email}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </Table>
+            <Col xs="12">
+              <div className="table-responsive">
+                {employees.length > 0 ? (
+                  <Table striped>
+                    <thead>
+                      <tr>
+                        <th>ID</th>
+                        <th>Tên</th>
+                        <th>Chức Vụ</th>
+                        <th>Email</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {employees.map((employee) => (
+                        <tr key={employee.id}>
+                          <td>{employee.id}</td>
+                          <td>{employee.name}</td>
+                          <td>{employee.position}</td>
+                          <td>{employee.email}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </Table>
+                ) : (
+                  <p>Không có dữ liệu để hiển thị.</p>
+                )}
+              </div>
+            </Col>
           </Row>
         </Col>
       </Row>

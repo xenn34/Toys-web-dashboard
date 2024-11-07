@@ -57,8 +57,12 @@
   align-items: center; /* Căn giữa theo chiều dọc */
 }
 
-/* Căn giữa logo và nav-item */
-@media (max-width: 768px) {
+/* Mobile: dưới 740px */
+@media (max-width: 739px) {
+  .employee-name {
+    display: none; /* Ẩn tên nhân viên */
+  }
+
   .navbar {
     display: flex;
     justify-content: space-between;
@@ -69,5 +73,19 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+  }
+}
+
+/* Tablet: từ 740px đến dưới 1024px */
+@media (min-width: 740px) and (max-width: 1023px) {
+  .employee-name {
+    display: none; /* Ẩn tên nhân viên */
+  }
+}
+
+/* PC: từ 1024px trở lên */
+@media (min-width: 1024px) {
+  .employee-name {
+    display: inline; /* Hiển thị tên nhân viên */
   }
 }

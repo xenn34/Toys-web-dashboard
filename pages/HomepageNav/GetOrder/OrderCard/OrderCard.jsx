@@ -22,12 +22,13 @@ const OrderCard = () => {
 
   return (
     <Container className="order-card">
-      <Row>
-        <Col>
+      <Row className="d-flex flex-column flex-md-row">
+        {/* Khi màn hình nhỏ hơn md, các cột sẽ xếp thành cột, còn với màn hình lớn hơn hoặc bằng md sẽ xếp thành dòng */}
+        <Col className="d-flex align-items-center mb-2">
           <i className="fas fa-user"></i>
           <strong> Tên khách hàng:</strong> Nguyễn Văn A
         </Col>
-        <Col>
+        <Col className="d-flex align-items-center mb-2">
           <i className="fas fa-phone"></i>
           <strong> Số điện thoại:</strong> 0123456789
         </Col>

@@ -18,9 +18,46 @@
     margin-bottom: 15px;
   }
 
-  @media (max-width: 768px) {
+  button {
+    width: 100%;
+    padding: 10px;
+    font-weight: bold;
+  }
+
+  // PC: >= 1024px
+  @media (min-width: 1024px) {
+    .flash-sale-container {
+      padding: 30px;
+    }
+
+    h2 {
+      font-size: 2rem; // Đặt kích thước tiêu đề lớn hơn cho PC
+    }
+  }
+
+  // Tablet: >= 740px và < 1024px
+  @media (min-width: 740px) and (max-width: 1024px) {
+    .flash-sale-container {
+      padding: 25px;
+    }
+
+    h2 {
+      font-size: 1.8rem; // Đặt kích thước tiêu đề vừa phải cho tablet
+    }
+  }
+
+  // Mobile: < 740px
+  @media (max-width: 740px) {
     .flash-sale-container {
       padding: 15px;
+    }
+
+    h2 {
+      font-size: 1.5rem; // Tiêu đề nhỏ cho mobile
+    }
+
+    button {
+      padding: 8px;
     }
   }
 }

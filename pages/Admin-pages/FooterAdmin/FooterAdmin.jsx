@@ -44,45 +44,53 @@ const AdminFooter = () => {
         </p>
 
         <Modal isOpen={showModal} toggle={toggleModal} className="modal-custom">
-          <ModalHeader toggle={toggleModal}>Chính Sách Bảo Mật</ModalHeader>
+          <ModalHeader toggle={toggleModal}>
+            <i className="fas fa-shield-alt me-2"></i> Chính Sách Bảo Mật Dữ
+            Liệu
+          </ModalHeader>
           <ModalBody>
             <ol>
               <li>
-                Chúng tôi thu thập thông tin cá nhân của bạn khi bạn đăng ký tài
-                khoản.
+                <i className="fas fa-user-lock me-2"></i> Chúng tôi thu thập
+                thông tin cá nhân của bạn khi bạn đăng ký tài khoản.
               </li>
               <li>
-                Thông tin của bạn sẽ được bảo mật và không chia sẻ cho bên thứ
-                ba.
+                <i className="fas fa-shield-alt me-2"></i> Thông tin của bạn sẽ
+                được bảo mật và không chia sẻ cho bên thứ ba.
               </li>
               <li>
-                Chúng tôi có thể sử dụng cookie để cải thiện trải nghiệm người
-                dùng.
+                <i className="fas fa-cookie-bite me-2"></i> Chúng tôi có thể sử
+                dụng cookie để cải thiện trải nghiệm người dùng.
               </li>
               <li>
-                Bạn có quyền truy cập và chỉnh sửa thông tin cá nhân của mình
-                bất cứ lúc nào.
+                <i className="fas fa-key me-2"></i> Bạn có quyền truy cập và
+                chỉnh sửa thông tin cá nhân của mình bất cứ lúc nào.
               </li>
               <li>
-                Chúng tôi cam kết bảo vệ thông tin của bạn khỏi các truy cập
-                trái phép.
+                <i className="fas fa-lock me-2"></i> Chúng tôi cam kết bảo vệ
+                thông tin của bạn khỏi các truy cập trái phép.
               </li>
               <li>
-                Mọi thay đổi về chính sách bảo mật sẽ được thông báo đến bạn.
+                <i className="fas fa-bell me-2"></i> Mọi thay đổi về chính sách
+                bảo mật sẽ được thông báo đến bạn.
               </li>
               <li>
-                Thời gian lưu trữ thông tin cá nhân của bạn sẽ tuân thủ theo quy
-                định pháp luật.
+                <i className="fas fa-calendar-alt me-2"></i> Thời gian lưu trữ
+                thông tin cá nhân của bạn sẽ tuân thủ theo quy định pháp luật.
               </li>
               <li>
-                Bạn có quyền yêu cầu xóa thông tin cá nhân của mình bất cứ lúc
-                nào.
+                <i className="fas fa-trash-alt me-2"></i> Bạn có quyền yêu cầu
+                xóa thông tin cá nhân của mình bất cứ lúc nào.
               </li>
               <li>
-                Chúng tôi sẽ thông báo cho bạn nếu có bất kỳ vi phạm nào liên
-                quan đến dữ liệu của bạn.
+                <i className="fas fa-exclamation-circle me-2"></i> Chúng tôi sẽ
+                thông báo cho bạn nếu có bất kỳ vi phạm nào liên quan đến dữ
+                liệu của bạn.
               </li>
-              <li>Chính sách bảo mật này có thể được cập nhật định kỳ.</li>
+              <li>
+                <i className="fas fa-sync-alt me-2"></i> Chính sách bảo mật này
+                có thể được cập nhật định kỳ.
+              </li>
             </ol>
           </ModalBody>
           <ModalFooter>
