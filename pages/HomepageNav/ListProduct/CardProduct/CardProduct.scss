@@ -1,6 +1,14 @@
 .card-container {
   border: 1px solid #e0e0e0;
   border-radius: 10px;
+  overflow: hidden;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
 
   .status-label {
     display: inline-block;
@@ -9,6 +17,7 @@
     border-radius: 5px;
     color: #fff;
     text-align: center;
+    font-weight: 600;
 
     &.in-stock {
       background-color: #28a745; // Màu xanh
@@ -21,20 +30,33 @@
 
   .description {
     font-size: 0.9rem;
-    color: #6c757d;
+    color: #444444;
+    margin-top: 10px;
+    line-height: 1.5;
+    text-align: justify; /* Căn đều phần mô tả */
   }
 
   .product-image {
-    width: 200px;
-    height: auto;
+    width: 100%;
+    height: 200px;
     object-fit: cover;
-    margin-right: auto;
     border-radius: 10px;
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: scale(1.05);
+    }
   }
 
   .btn-primary {
     background-color: #007bff;
     border-color: #007bff;
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+
     &:hover {
       background-color: #0056b3;
       border-color: #004085;
@@ -44,6 +66,12 @@
   .btn-danger {
     background-color: #dc3545;
     border-color: #dc3545;
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+
     &:hover {
       background-color: #c82333;
       border-color: #bd2130;
@@ -51,45 +79,50 @@
   }
 
   .action-buttons {
-    display: flex; /* Đảm bảo nút luôn nằm ngang */
-    gap: 1rem; /* Khoảng cách giữa các nút */
-    justify-content: flex-start; /* Đảm bảo căn trái nếu cần */
-    flex-wrap: nowrap; /* Đảm bảo không xuống dòng */
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    margin-top: 10px;
+
+    .btn {
+      flex: 1;
+      text-align: center;
+    }
+  }
+
+  .product-name {
+    font-weight: bold; // Đảm bảo tên sản phẩm in đậm
   }
 }
 
 /* Sử dụng media query để thay đổi cấu trúc khi kích thước màn hình là tablet (740px - 1024px) */
 @media (min-width: 740px) and (max-width: 1024px) {
   .card-container .action-buttons {
-    display: block; /* Đảm bảo các nút xóa và chỉnh sửa nằm trên các dòng riêng biệt */
-    margin-top: 10px; /* Khoảng cách giữa trạng thái và các nút */
-  }
-
-  .card-container .pt-2 {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-  }
-
-  .card-container .status-label {
-    margin-bottom: 10px; /* Giảm khoảng cách của trạng thái khi xuống dòng */
-  }
-
-  /* Ẩn dấu gạch dọc khi xuống dòng */
-  .card-container .action-buttons {
+    display: block;
     margin-top: 10px;
   }
 
+  .card-container .pt-2 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .card-container .status-label {
+    margin-bottom: 10px;
+  }
+
   .card-container .mx-2 {
-    display: none; /* Ẩn dấu gạch khi xuống dòng */
+    display: none;
   }
 }
 
-/* Sử dụng media query cho màn hình dưới 540px để áp dụng thay đổi như tablet */
+/* Sử dụng media query cho màn hình dưới 540px */
 @media (max-width: 540px) {
   .card-container .action-buttons {
-    display: block; /* Đảm bảo các nút xóa và chỉnh sửa nằm trên các dòng riêng biệt */
-    margin-top: 10px; /* Khoảng cách giữa trạng thái và các nút */
+    display: block;
+    margin-top: 10px;
   }
 
   .card-container .pt-2 {
@@ -99,11 +132,10 @@
   }
 
   .card-container .status-label {
-    margin-bottom: 10px; /* Giảm khoảng cách của trạng thái khi xuống dòng */
+    margin-bottom: 10px;
   }
 
-  /* Ẩn dấu gạch dọc khi xuống dòng */
   .card-container .mx-2 {
-    display: none; /* Ẩn dấu gạch khi xuống dòng */
+    display: none;
   }
 }

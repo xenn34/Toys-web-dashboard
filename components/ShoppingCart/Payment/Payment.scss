@@ -1,0 +1,244 @@
+/* Reset styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+}
+
+/* Container */
+.container-payment {
+  display: flex;
+  width: 100%;
+}
+
+/* Main Info Section */
+.info-main-payment {
+  display: flex;
+  width: 400px;
+  height: 120px;
+  border: 1px solid;
+  align-items: center;
+  border-radius: 15px;
+  margin: 0 auto;
+}
+
+/* Customer Image */
+.img-info-payment {
+  width: 100px;
+  height: 100px;
+  border: 1px solid;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+/* Customer Info */
+.main-info-payment {
+  margin-left: 10px;
+  display: block;
+  text-align: left;
+}
+
+.main-info-payment h2 {
+  font-size: 24px;
+  margin-bottom: 5px;
+}
+
+.main-info-payment p {
+  font-size: 16px;
+  color: #888;
+}
+
+/* Coupon Code Input */
+.info-payment {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background-color: #fff;
+  border-right: 1px solid #ccc;
+  padding: 20px;
+}
+
+label {
+  font-weight: bold;
+  padding-top: 20px;
+}
+
+label[for="coupon"] {
+  position: relative;
+  display: block;
+  width: 100%;
+  margin-top: 20px;
+  padding-top: 20px;
+}
+
+label[for="coupon"]::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: #000;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Product List */
+.product-list-payment {
+  display: block;
+  width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  flex-direction: column;
+}
+
+/* Product Item */
+.product-item-payment {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border: 1px solid;
+  border-radius: 15px;
+  margin: 15px 0;
+}
+
+.product-item-payment img {
+  width: 80px;
+  height: 80px;
+  margin-right: 20px;
+  border: 1px solid;
+}
+
+/* Product Info */
+.product-info-payment {
+  display: flex;
+  flex-direction: column;
+}
+
+.product-info-payment h3 {
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+.product-info-payment .status {
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  margin-bottom: 10px;
+  display: inline-block;
+}
+
+.product-info-payment .status.delivered {
+  background-color: #5bc57b;
+  color: #fff;
+  width: 100px;
+  text-align: center;
+}
+
+.price {
+  font-size: 18px;
+  color: #ff3333;
+  font-weight: bold;
+}
+
+/* Payment and Total */
+.payment-total {
+  position: relative;
+  display: block;
+  width: 100%;
+  margin-top: 20px;
+  padding-top: 20px;
+  justify-content: space-between;
+}
+
+.payment-total::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: #000;
+}
+
+.temporary,
+.totalprice {
+  font-size: 18px;
+  color: #333;
+}
+
+/* Order Button */
+.order-payment {
+  font-size: 15px;
+  display: block;
+  margin: 30px auto 0;
+  width: 50%;
+  padding: 10px;
+  background-color: #f44336;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Responsive styling */
+@media (max-width: 768px) {
+  .container-payment {
+    flex-direction: column;
+  }
+
+  .info-payment {
+    width: 100%;
+  }
+
+  .info-main-payment {
+    width: 90%;
+  }
+
+  .product-list-payment {
+    width: 100%;
+  }
+
+  .product-item-payment {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .order-payment {
+    width: 80%;
+  }
+}
+
+@media (max-width: 480px) {
+  .info-main-payment {
+    height: auto;
+  }
+
+  .main-info-payment h2 {
+    font-size: 20px;
+  }
+
+  .main-info-payment p {
+    font-size: 14px;
+  }
+
+  .product-item-payment img {
+    width: 60px;
+    height: 60px;
+  }
+
+  .price {
+    font-size: 16px;
+  }
+}

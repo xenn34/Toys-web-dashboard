@@ -17,11 +17,10 @@ import "./UploadProduct.scss";
 const UploadProduct = () => {
   const [modal, setModal] = useState(false); // Trạng thái modal xác nhận
   const [productDetails, setProductDetails] = useState({
-    id: "",
     name: "",
     price: "",
-    flashSaleCode: "",
     description: "",
+    ageAppropriate: "",
     image: null,
   });
 
@@ -44,7 +43,25 @@ const UploadProduct = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    toggleModal(); // Mở modal xác nhận
+    // Kiểm tra các trường bắt buộc trước khi hiển thị modal
+    if (
+      !productDetails.name ||
+      !productDetails.price ||
+      !productDetails.description
+    ) {
+      alert("Vui lòng điền đầy đủ thông tin!");
+
+      // Focus vào trường bị thiếu
+      if (!productDetails.name) {
+        document.getElementById("productName").focus();
+      } else if (!productDetails.price) {
+        document.getElementById("productPrice").focus();
+      } else if (!productDetails.description) {
+        document.getElementById("productDescription").focus();
+      }
+      return;
+    }
+    toggleModal(); // Mở modal xác nhận nếu mọi thứ hợp lệ
   };
 
   const handleConfirm = () => {
@@ -59,18 +76,6 @@ const UploadProduct = () => {
       <Row>
         <Col md={6} className="mx-auto">
           <FormGroup>
-            <Label for="productId">
-              <i className="fas fa-tag"></i> Mã sản phẩm
-            </Label>
-            <Input
-              type="text"
-              id="productId"
-              name="id"
-              placeholder="Nhập mã sản phẩm"
-              onChange={handleChange}
-            />
-          </FormGroup>
-          <FormGroup>
             <Label for="productName">
               <i className="fas fa-box"></i> Tên sản phẩm
             </Label>
@@ -79,7 +84,9 @@ const UploadProduct = () => {
               id="productName"
               name="name"
               placeholder="Nhập tên sản phẩm"
+              value={productDetails.name}
               onChange={handleChange}
+              required
             />
           </FormGroup>
           <FormGroup>
@@ -91,21 +98,13 @@ const UploadProduct = () => {
               id="productPrice"
               name="price"
               placeholder="Nhập giá sản phẩm"
+              value={productDetails.price}
               onChange={handleChange}
+              required
+              min="0"
+              step="0.01" // Để cho phép giá có giá trị thập phân
             />
-            <span className="price-label">VNĐ</span> {/* Label VNĐ */}
-          </FormGroup>
-          <FormGroup>
-            <Label for="flashSaleCode">
-              <i className="fas fa-fire"></i> Mã Flash Sale
-            </Label>
-            <Input
-              type="text"
-              id="flashSaleCode"
-              name="flashSaleCode"
-              placeholder="Nhập mã flash sale"
-              onChange={handleChange}
-            />
+            <span className="price-label">VNĐ</span>
           </FormGroup>
           <FormGroup>
             <Label for="productDescription">
@@ -116,7 +115,25 @@ const UploadProduct = () => {
               id="productDescription"
               name="description"
               placeholder="Nhập mô tả sản phẩm"
+              value={productDetails.description}
               onChange={handleChange}
+              required
+            />
+          </FormGroup>
+          <FormGroup>
+            <Label for="ageAppropriate">
+              <i className="fas fa-child"></i> Độ tuổi phù hợp
+            </Label>
+            <Input
+              type="number"
+              id="ageAppropriate"
+              name="ageAppropriate"
+              placeholder="Nhập độ tuổi phù hợp"
+              value={productDetails.ageAppropriate}
+              onChange={handleChange}
+              min="0"
+              max="100"
+              required
             />
           </FormGroup>
           <FormGroup>
