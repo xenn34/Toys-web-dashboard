@@ -12,19 +12,45 @@ import {
   ModalFooter,
 } from "reactstrap";
 import "../CardProduct/CardProduct.scss";
+import { deleteProduct, updateProduct } from "../../../Api/product"; // Import hàm xóa và chỉnh sửa sản phẩm
 
-const CardProduct = ({ product }) => {
-  // State để điều khiển hiển thị modal
+const CardProduct = ({ product, onDeleteSuccess, onUpdateSuccess }) => {
   const [modal, setModal] = useState(false);
+  const [modalEdit, setModalEdit] = useState(false);
+  const [editAttributes, setEditAttributes] = useState({
+    name: product.name,
+    price: product.price,
+    description: product.description,
+  });
 
-  // Hàm toggle modal
   const toggle = () => setModal(!modal);
+  const toggleEdit = () => setModalEdit(!modalEdit);
 
-  // Hàm xử lý xóa
-  const handleDelete = () => {
-    // Gọi API hoặc xử lý xóa ở đây
-    console.log("Sản phẩm đã bị xóa:", product.name);
-    toggle(); // Đóng modal sau khi xóa
+  const handleDelete = async () => {
+    try {
+      const result = await deleteProduct([product._id]);
+      console.log("Sản phẩm đã bị xóa:", result);
+      onDeleteSuccess(product._id);
+      toggle();
+    } catch (error) {
+      console.error("Lỗi khi xóa sản phẩm:", error);
+    }
+  };
+
+  const handleEditChange = (e) => {
+    const { name, value } = e.target;
+    setEditAttributes((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleUpdate = async () => {
+    try {
+      const result = await updateProduct(product._id, editAttributes);
+      console.log("Sản phẩm đã được cập nhật:", result);
+      onUpdateSuccess(product._id, editAttributes);
+      toggleEdit();
+    } catch (error) {
+      console.error("Lỗi khi cập nhật sản phẩm:", error);
+    }
   };
 
   return (
@@ -46,7 +72,7 @@ const CardProduct = ({ product }) => {
         </CardText>
         <CardText className="description">
           <strong>Mô tả: </strong>
-          {product.description.substring(0, 150)}... {/* Hiển thị mô tả ngắn */}
+          {product.description.substring(0, 150)}...
         </CardText>
         <CardText>
           <strong>Độ tuổi phù hợp: </strong>
@@ -55,6 +81,9 @@ const CardProduct = ({ product }) => {
         <div className="action-buttons">
           <Button color="danger" size="sm" onClick={toggle}>
             Xóa
+          </Button>
+          <Button color="warning" size="sm" onClick={toggleEdit}>
+            Chỉnh sửa
           </Button>
         </div>
       </CardBody>
@@ -72,6 +101,41 @@ const CardProduct = ({ product }) => {
           </Button>
           <Button color="danger" onClick={handleDelete}>
             Xóa
+          </Button>
+        </ModalFooter>
+      </Modal>
+
+      {/* Modal chỉnh sửa */}
+      <Modal isOpen={modalEdit} toggle={toggleEdit}>
+        <ModalHeader toggle={toggleEdit}>Chỉnh sửa sản phẩm</ModalHeader>
+        <ModalBody>
+          <label>Tên sản phẩm:</label>
+          <input
+            type="text"
+            name="name"
+            value={editAttributes.name}
+            onChange={handleEditChange}
+          />
+          <label>Giá:</label>
+          <input
+            type="number"
+            name="price"
+            value={editAttributes.price}
+            onChange={handleEditChange}
+          />
+          <label>Mô tả:</label>
+          <textarea
+            name="description"
+            value={editAttributes.description}
+            onChange={handleEditChange}
+          />
+        </ModalBody>
+        <ModalFooter>
+          <Button color="secondary" onClick={toggleEdit}>
+            Hủy
+          </Button>
+          <Button color="primary" onClick={handleUpdate}>
+            Cập nhật
           </Button>
         </ModalFooter>
       </Modal>

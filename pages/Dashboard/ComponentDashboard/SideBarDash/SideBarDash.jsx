@@ -18,7 +18,7 @@ const SideBar = () => {
 
   return (
     <Navbar
-      className="navbar-vertical fixed-left navbar-light bg-dark navbar-custom "
+      className="navbar-vertical fixed-left navbar-light bg-white navbar-custom "
       expand="md"
     >
       <Container fluid className="">

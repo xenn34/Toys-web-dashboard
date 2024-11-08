@@ -30,12 +30,12 @@ const AdminHeader = () => {
   };
 
   const isActive = (path) =>
-    location.pathname === path ? "text-dark" : "text-white";
+    location.pathname === path ? "text-dark" : "text-black";
 
   return (
     <Navbar
       expand="md"
-      className="border-bottom shadow-sm px-3 rounded bg-info"
+      className="border-bottom shadow-sm px-3 rounded bg-white"
     >
       <div className="d-flex align-items-center">
         <img

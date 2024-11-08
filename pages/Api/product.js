@@ -27,15 +27,32 @@ const getProduct = async (id) => {
   }
 };
 
-// Lấy tất cả danh mục sản phẩm
-const getAllCategories = async () => {
+// Xóa sản phẩm theo ID
+const deleteProduct = async (_ids) => {
   try {
-    const response = await axiosClient.get("/categories/findAll");
-    return response.data; // Trả về danh sách danh mục
+    const response = await axiosClient.delete("/admin/product/delete", {
+      data: { _ids },
+    });
+    console.log("Sản phẩm đã bị xóa:", response.data);
+    return response.data; // Trả về kết quả xóa
   } catch (error) {
-    console.error("Lỗi khi lấy danh mục:", error);
+    console.error("Lỗi khi xóa sản phẩm:", error);
     throw error;
   }
 };
 
-export { getAllProducts, getProduct, getAllCategories };
+const updateProduct = async (_id, attributes) => {
+  try {
+    const response = await axiosClient.put("/admin/product/update", {
+      _id,
+      attributes,
+    });
+    console.log("Sản phẩm đã được cập nhật:", response.data);
+    return response.data; // Trả về kết quả cập nhật
+  } catch (error) {
+    console.error("Lỗi khi cập nhật sản phẩm:", error);
+    throw error;
+  }
+};
+
+export { getAllProducts, getProduct, updateProduct, deleteProduct };

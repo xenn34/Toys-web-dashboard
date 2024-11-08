@@ -1,7 +1,6 @@
-// src/components/ProductView/ProductView.js
 import React, { useEffect, useState } from "react";
 import { Container, Row, Col, Spinner } from "reactstrap";
-import { getAllProducts } from "../../Api/product"; // Import các hàm từ product.js
+import { getAllProducts } from "../../Api/product";
 import CardProduct from "../ListProduct/CardProduct/CardProduct";
 import "../ListProduct/styleListProducts.scss";
 
@@ -9,14 +8,12 @@ const ProductView = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  // Fetch products from backend
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await getAllProducts(); // Sử dụng hàm getAllProducts
+        const response = await getAllProducts();
         if (response.products && Array.isArray(response.products)) {
-          // Kiểm tra mảng products
-          setProducts(response.products); // Cập nhật danh sách sản phẩm
+          setProducts(response.products);
         } else {
           console.error("Dữ liệu trả về không đúng cấu trúc:", response);
         }
@@ -26,9 +23,20 @@ const ProductView = () => {
         setLoading(false);
       }
     };
-
     fetchProducts();
   }, []);
+
+  const handleDeleteSuccess = (deletedProductId) => {
+    setProducts(products.filter((product) => product._id !== deletedProductId));
+  };
+
+  const handleUpdateSuccess = (updatedProduct) => {
+    setProducts(
+      products.map((product) =>
+        product._id === updatedProduct._id ? updatedProduct : product
+      )
+    );
+  };
 
   return (
     <Container>
@@ -36,15 +44,18 @@ const ProductView = () => {
       <div className="pt-3 pb-3">
         {loading ? (
           <div className="text-center">
-            <Spinner color="primary" /> {/* Hiển thị loading spinner */}
+            <Spinner color="primary" />
           </div>
         ) : (
           <Row>
-            {Array.isArray(products) && products.length > 0 ? ( // Kiểm tra nếu products là mảng và không rỗng
+            {Array.isArray(products) && products.length > 0 ? (
               products.map((product) => (
                 <Col key={product._id} md={4} className="mb-4">
-                  <CardProduct product={product} />{" "}
-                  {/* Gửi product vào CardProduct */}
+                  <CardProduct
+                    product={product}
+                    onDeleteSuccess={handleDeleteSuccess}
+                    onUpdateSuccess={handleUpdateSuccess}
+                  />
                 </Col>
               ))
             ) : (
