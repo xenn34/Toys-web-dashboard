@@ -1,7 +1,6 @@
 import React from "react";
-import HeaderDash from "../../HeaderDash/HeaderDash";
-import FooterDash from "../../FooterDash/FooterDash";
 import { Col, Row, Table } from "reactstrap";
+import "./TopStaff.scss";
 
 // Dữ liệu giả lập
 const employees = [
@@ -23,7 +22,7 @@ const TopStaffTable = () => {
   const topEmployees = employees.sort((a, b) => b.sales - a.sales).slice(0, 5);
 
   return (
-    <div>
+    <div className="table-container">
       <Row>
         <Col>
           <Table striped>

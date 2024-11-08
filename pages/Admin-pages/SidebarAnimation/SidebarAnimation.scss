@@ -80,7 +80,7 @@
   }
 }
 
-/* Mặc định cho màn hình lớn (PC) */
+/* Animation for elements */
 @keyframes fallStore {
   0% {
     transform: translateY(-50px);
@@ -121,32 +121,31 @@
   }
 }
 
-/* Media Queries */
-
-/* Tablet: >= 740px và < 1024px */
-@media (max-width: 1024px) and (min-width: 740px) {
+/* Mặc định cho màn hình lớn (PC) */
+@media (max-width: 1208px) {
   .sidebar-animation-container {
-    height: 80vh; /* Thu gọn chiều cao của sidebar */
-    padding: 20px; /* Thêm khoảng cách xung quanh để sidebar không bị sát cạnh */
+    height: 100vh; /* Chiều cao đầy đủ */
+    padding: 20px;
   }
 
   .animation-container {
     h5 {
-      font-size: 2.5rem; /* Giảm kích thước chữ cho phù hợp với màn hình tablet */
+      font-size: 2.5rem; /* Giảm kích thước chữ cho phù hợp với màn hình nhỏ */
     }
   }
 }
 
-/* Mobile: < 740px */
-@media (max-width: 740px) {
+/* Màn hình Tablet và nhỏ hơn */
+@media (max-width: 818px) {
   .sidebar-animation-container {
-    height: 70vh; /* Thu gọn chiều cao của sidebar */
-    padding: 10px; /* Thêm khoảng cách xung quanh để sidebar không bị sát cạnh */
+    height: auto; /* Sidebar di chuyển lên trên */
+    padding: 20px;
+    overflow-x: auto; /* Thêm thanh cuộn ngang nếu cần */
   }
 
   .animation-container {
     h5 {
-      font-size: 2rem; /* Giảm kích thước chữ cho phù hợp với màn hình mobile */
+      font-size: 2rem; /* Giảm kích thước chữ cho phù hợp với màn hình nhỏ hơn */
     }
   }
 }

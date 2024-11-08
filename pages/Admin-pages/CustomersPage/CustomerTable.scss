@@ -1,10 +1,61 @@
-.customer-table {
+/* Tiêu đề */
+.customer-list-title {
   margin-bottom: 20px;
+  color: #333;
+  font-size: 24px;
+  font-weight: bold;
 }
 
-.customer-row {
-  cursor: pointer;
-  &:hover {
-    background-color: #f2f2f2;
+/* Đảm bảo bảng chiếm toàn bộ chiều rộng của vùng chứa */
+.customer-table-wrapper {
+  width: 100% !important; /* Container chứa bảng chiếm toàn bộ chiều rộng */
+  overflow-x: auto; /* Thêm thanh cuộn ngang khi cần thiết */
+  -webkit-overflow-scrolling: touch; /* Thêm cuộn mượt mà cho thiết bị cảm ứng */
+}
+
+.customer-table {
+  width: 100% !important; /* Bảng chiếm toàn bộ chiều rộng của vùng chứa */
+  min-width: 1000px; /* Đảm bảo bảng không bị thu hẹp quá mức */
+}
+
+.customer-table th,
+.customer-table td {
+  white-space: nowrap; /* Đảm bảo nội dung không bị ngắt dòng */
+  padding: 10px; /* Khoảng cách giữa các ô */
+}
+
+/* Media query cho các màn hình nhỏ hơn 768px */
+@media (max-width: 768px) {
+  .customer-table-wrapper {
+    overflow-x: auto; /* Thêm thanh cuộn ngang cho bảng */
+  }
+
+  .customer-table {
+    min-width: unset; /* Không giới hạn chiều rộng tối thiểu */
+    width: 100%; /* Đảm bảo bảng chiếm toàn bộ chiều rộng vùng chứa */
+  }
+
+  .customer-table th,
+  .customer-table td {
+    padding: 8px; /* Điều chỉnh khoảng cách các ô cho dễ nhìn */
+    word-wrap: break-word; /* Đảm bảo các ô có thể tự động xuống dòng khi cần */
+  }
+}
+
+/* Media query cho các màn hình nhỏ hơn 991px */
+@media (max-width: 991px) {
+  /* Không thay đổi bảng dưới 991px */
+  .customer-table-wrapper {
+    width: 100%;
+  }
+
+  .customer-table {
+    width: 100%;
+    min-width: unset; /* Không giới hạn chiều rộng tối thiểu */
+  }
+
+  .customer-table th,
+  .customer-table td {
+    padding: 10px; /* Khoảng cách giữa các ô */
   }
 }

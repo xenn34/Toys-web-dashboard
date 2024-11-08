@@ -11,17 +11,22 @@ const KPIs = () => {
     <div style={{ padding: "2px" }}>
       {/* <HeaderDash /> */}
       {/*KPIs tất cả sản phẩm */}
-      <Row className="justify-content-center">
+      <Row className="justify-content-center pb-3">
         <Col md="10">
           <h1 className="title text-center">KPI CÁC SẢN PHẨM CHIẾN LƯỢC</h1>
-          <KPIProduct />
+          <div className="table-container">
+            <KPIProduct />
+          </div>
         </Col>
       </Row>
       {/*KPIs nhân viên */}
-      <Row className="justify-content-center">
+      <hr className="text-info "></hr>
+      <Row className="justify-content-center pt-3">
         <Col md="10">
           <h1 className="title text-center">TOP 5 NHÂN VIÊN KHÔNG ĐẠT KPI</h1>
-          <TopBadEmployees />
+          <div className="table-container">
+            <TopBadEmployees />
+          </div>
         </Col>
       </Row>
       {/* <FooterDash /> */}

@@ -3,6 +3,7 @@ import HeaderDash from "../../HeaderDash/HeaderDash";
 import FooterDash from "../../FooterDash/FooterDash";
 import { Col, Row } from "reactstrap";
 import TopStaffTable from "../TopStaff/TopStaffTable.jsx";
+import "./TopStaff.scss";
 
 const TopStaff = () => {
   return (

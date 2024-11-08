@@ -4,30 +4,32 @@ import "./CustomerTable.scss"; // Nhập file SCSS
 
 const CustomerTable = ({ customers, onCustomerSelect }) => {
   return (
-    <Table striped className="customer-table">
-      <thead>
-        <tr>
-          <th>#</th>
-          <th>Name</th>
-          <th>Email</th>
-          <th>Phone</th>
-        </tr>
-      </thead>
-      <tbody>
-        {customers.map((customer, index) => (
-          <tr
-            key={index}
-            onClick={() => onCustomerSelect(index)}
-            className="customer-row"
-          >
-            <th scope="row">{index + 1}</th>
-            <td>{customer.name}</td>
-            <td>{customer.email}</td>
-            <td>{customer.phone}</td>
+    <div className="customer-table-wrapper">
+      <Table striped className="customer-table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Address</th>
+            <th>Phone</th>
+            <th>Revenue</th>
           </tr>
-        ))}
-      </tbody>
-    </Table>
+        </thead>
+        <tbody>
+          {customers.map((customer, index) => (
+            <tr
+              key={index}
+              onClick={() => onCustomerSelect(index)}
+              className="customer-row"
+            >
+              <td>{customer.name}</td>
+              <td>{customer.address}</td>
+              <td>{customer.phone}</td>
+              <td>{customer.revenue}</td>
+            </tr>
+          ))}
+        </tbody>
+      </Table>
+    </div>
   );
 };
 

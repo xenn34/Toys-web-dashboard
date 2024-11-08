@@ -5,7 +5,7 @@ import "./SidebarAnimation.scss";
 
 function SidebarAnimation() {
   return (
-    <Container fluid className="sidebar-animation-container bg-white">
+    <Container fluid className="sidebar-animation-container bg-white ">
       <Row className="justify-content-center pt-5 pb-5">
         <Col xs="12" className="icon-container text-center">
           <img src={data_pic} alt="Data Icon" className="data-icon" />

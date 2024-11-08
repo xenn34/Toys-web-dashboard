@@ -9,14 +9,32 @@ import AdminFooter from "../FooterAdmin/FooterAdmin";
 const CustomersPage = () => {
   const [selectedCustomerId, setSelectedCustomerId] = useState(null);
 
+  // Cập nhật dữ liệu khách hàng
   const customers = [
-    { name: "John Doe", email: "johndoe@example.com", phone: "123-456-7890" },
+    {
+      name: "John Doe",
+      address: "123 Main St, City, Country",
+      phone: "123-456-7890",
+      revenue: 5000,
+    },
     {
       name: "Jane Smith",
-      email: "janesmith@example.com",
+      address: "456 Elm St, City, Country",
       phone: "987-654-3210",
+      revenue: 7000,
     },
-    // ... thêm các khách hàng khác
+    {
+      name: "Mark Johnson",
+      address: "789 Pine St, City, Country",
+      phone: "555-123-4567",
+      revenue: 4000,
+    },
+    {
+      name: "Emily Davis",
+      address: "101 Maple St, City, Country",
+      phone: "333-555-7890",
+      revenue: 6000,
+    },
   ];
 
   const handleCustomerSelect = (id) => {
@@ -24,23 +42,30 @@ const CustomersPage = () => {
   };
 
   return (
-    <Container>
+    <Container className="bg-light">
       <Row>
-        <Col xs="12" md="3">
-          <SidebarAnimation />
+        <Col xs="12" md="3" className="sidebar-col">
+          <SidebarAnimation className="sidebar-animation" />
         </Col>
-        <Col xs="12" md="9">
-          <h2 className="customer-list-title">Customer List</h2>
-          <CustomerTable
-            customers={customers}
-            onCustomerSelect={handleCustomerSelect}
-          />
-          {selectedCustomerId !== null && (
-            <CustomersDetail
-              customer={customers[selectedCustomerId]}
-              onClose={() => setSelectedCustomerId(null)}
-            />
-          )}
+        <Col xs="12" md="9" className="col-content">
+          <div className="bg-light">
+            <Container
+              className="bg-white  pb-3 pt-3"
+              style={{ borderRadius: "10px" }}
+            >
+              <h2 className="title">DANH SÁCH KHÁCH HÀNG</h2>
+              <CustomerTable
+                customers={customers}
+                onCustomerSelect={handleCustomerSelect}
+              />
+              {selectedCustomerId !== null && (
+                <CustomersDetail
+                  customer={customers[selectedCustomerId]}
+                  onClose={() => setSelectedCustomerId(null)}
+                />
+              )}
+            </Container>
+          </div>
         </Col>
       </Row>
       <Row>

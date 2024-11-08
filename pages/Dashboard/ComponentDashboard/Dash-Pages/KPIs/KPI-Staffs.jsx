@@ -21,35 +21,37 @@ const TopBadEmployees = () => {
     .slice(0, 5); // Lấy top 5
 
   return (
-    <Table bordered hover className="table-container">
-      <thead>
-        <tr>
-          <th>STT</th>
-          <th>Tên Nhân Viên</th>
-          <th>Doanh Số</th>
-          <th>Mục Tiêu</th>
-          <th>Tiến Độ</th>
-        </tr>
-      </thead>
-      <tbody>
-        {under50Employees.map((employee, index) => (
-          <tr key={employee.id}>
-            <td>{index + 1}</td>
-            <td>{employee.name}</td>
-            <td>{employee.sales.toLocaleString("vi-VN")} VNĐ</td>
-            <td>{employee.target.toLocaleString("vi-VN")} VNĐ</td>
-            <td>
-              <Progress
-                value={employee.progress}
-                color={employee.progress < 50 ? "danger" : "warning"}
-              >
-                {`${Math.round(employee.progress)}%`}
-              </Progress>
-            </td>
+    <div className="table-container">
+      <Table bordered hover>
+        <thead>
+          <tr>
+            <th>STT</th>
+            <th>Tên Nhân Viên</th>
+            <th>Doanh Số</th>
+            <th>Mục Tiêu</th>
+            <th>Tiến Độ</th>
           </tr>
-        ))}
-      </tbody>
-    </Table>
+        </thead>
+        <tbody>
+          {under50Employees.map((employee, index) => (
+            <tr key={employee.id}>
+              <td>{index + 1}</td>
+              <td>{employee.name}</td>
+              <td>{employee.sales.toLocaleString("vi-VN")} VNĐ</td>
+              <td>{employee.target.toLocaleString("vi-VN")} VNĐ</td>
+              <td>
+                <Progress
+                  value={employee.progress}
+                  color={employee.progress < 50 ? "danger" : "warning"}
+                >
+                  {`${Math.round(employee.progress)}%`}
+                </Progress>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </Table>
+    </div>
   );
 };
 
