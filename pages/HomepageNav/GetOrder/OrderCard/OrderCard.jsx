@@ -51,7 +51,7 @@ const OrderCard = ({ user }) => {
       <Row>
         <Col>
           <i className="fas fa-calendar-alt"></i>
-          <strong> Ngày đặt hàng:</strong> haha
+          <strong> Ngày đặt hàng:</strong> 23/10/2024
         </Col>
       </Row>
       <Row className="mt-3">

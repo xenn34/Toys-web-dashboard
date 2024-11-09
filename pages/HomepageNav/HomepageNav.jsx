@@ -5,6 +5,7 @@ import UploadProduct from "../HomepageNav/UpToSale/UpToSale";
 import OrderManagement from "../HomepageNav/GetOrder/GetOrder";
 import Promotions from "../HomepageNav/FlashSale/FlashSale";
 import ReviewProduct from "../HomepageNav/Evaluation/Evaluation";
+import ReviewContainer from "./Evaluation/ReviewContainer";
 import { Routes, Route, Navigate } from "react-router-dom";
 import "./HomepageNav.scss";
 
@@ -23,7 +24,7 @@ function HomepageNav() {
               <Route path="upload-products" element={<UploadProduct />} />
               <Route path="view-orders" element={<OrderManagement />} />
               <Route path="flash-sale" element={<Promotions />} />
-              <Route path="review-products" element={<ReviewProduct />} />
+              <Route path="review-products" element={<ReviewContainer />} />
             </Routes>
           </Container>
         </Col>

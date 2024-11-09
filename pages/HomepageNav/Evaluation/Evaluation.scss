@@ -1,76 +1,60 @@
-/* Evaluation.scss */
-.review-container {
-  border: 1px solid #e0e0e0;
+.product-card {
+  background-color: #fff;
   border-radius: 10px;
   padding: 1rem;
-  background-color: #fff;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1rem;
 
   .description {
-    font-size: 0.9rem;
+    font-size: 1rem;
     color: #6c757d;
   }
 
   .product-image {
     width: 100%;
+    max-width: 200px;
     height: auto;
-    object-fit: cover; // Đảm bảo ảnh không bị méo
+    object-fit: cover;
+    border-radius: 8px;
   }
 
   .btn-primary {
     background-color: #007bff;
     border-color: #007bff;
+    padding: 0.5rem 1rem; // Thêm padding cho button
+    border-radius: 5px;
+    font-size: 1rem;
+
     &:hover {
       background-color: #0056b3;
       border-color: #004085;
     }
   }
-}
 
-/* Responsive Styles */
-@media (min-width: 1024px) {
-  .review-container {
-    padding: 2rem;
-  }
-
-  .product-image {
-    max-width: 250px; /* Cố định chiều rộng của ảnh cho màn hình PC */
-  }
-
-  .description {
-    font-size: 1rem;
-  }
-}
-
-@media (min-width: 740px) and (max-width: 1023px) {
-  .review-container {
-    padding: 1.5rem;
-  }
-
-  .product-image {
-    max-width: 200px; /* Cố định chiều rộng của ảnh cho màn hình Tablet */
-  }
-
-  .description {
-    font-size: 0.95rem;
+  .modal-body h5 {
+    font-weight: bold;
+    margin-bottom: 1rem;
   }
 }
 
 @media (max-width: 739px) {
-  .review-container {
+  .product-card {
     padding: 1rem;
   }
 
   .product-image {
-    max-width: 100%; /* Chiều rộng ảnh sẽ tự động chiếm hết không gian */
-    padding-top: 1rem; /* Thêm pt-3 cho mobile */
-  }
-
-  .description {
-    font-size: 0.85rem;
+    max-width: 150px;
   }
 
   .btn-primary {
-    width: 100%; /* Đảm bảo nút "Xem đánh giá" sẽ chiếm toàn bộ chiều rộng trên mobile */
+    width: 100%; // Button chiếm toàn bộ chiều rộng trên màn hình nhỏ
   }
+}
+.product-description {
+  display: block;
+  overflow: hidden; /* Ẩn phần vượt quá */
+  text-overflow: ellipsis; /* Hiển thị dấu ba chấm */
+  white-space: normal; /* Cho phép văn bản xuống dòng */
+  line-height: 1.4; /* Đảm bảo các dòng có chiều cao hợp lý */
+  max-height: 4.2em; /* Giới hạn 3 dòng với line-height 1.4 */
 }
