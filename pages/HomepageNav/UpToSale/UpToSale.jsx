@@ -18,8 +18,7 @@ const UploadProduct = () => {
     name: "", // Tên sản phẩm
     price: "", // Giá sản phẩm
     description: "", // Mô tả sản phẩm
-    ageAppropriate: "", // Độ tuổi phù hợp
-    image: null, // Hình ảnh sản phẩm
+    suitableAge: "", // Độ tuổi phù hợp
   });
 
   // Hàm handleChange để cập nhật giá trị của các trường input
@@ -31,60 +30,29 @@ const UploadProduct = () => {
     });
   };
 
-  // Hàm handleFileChange để cập nhật ảnh sản phẩm từ input file
-  const handleFileChange = (e) => {
-    setProductDetails({
-      ...productDetails,
-      image: e.target.files[0], // Lấy file ảnh đầu tiên từ input
-    });
-  };
-
   // Hàm uploadProductDetails để gửi thông tin sản phẩm (không bao gồm ảnh) đến API
   const uploadProductDetails = async () => {
     const productData = {
       name: productDetails.name,
       price: productDetails.price,
       description: productDetails.description,
-      ageAppropriate: productDetails.ageAppropriate,
+      suitableAge: productDetails.suitableAge,
     };
 
     console.log("Dữ liệu sản phẩm gửi lên:", productData); // In dữ liệu sản phẩm trước khi gửi
 
     try {
+      console.log(productData);
+
       const response = await axiosClient.post(
         "/admin/product/create",
-        productData
+        (attributes = productData)
       );
       console.log("Sản phẩm đã được tạo:", response.data);
       return response.data; // Trả về dữ liệu sản phẩm vừa được tạo
     } catch (error) {
       console.error("Lỗi khi tạo sản phẩm:", error);
       alert("Có lỗi khi tạo sản phẩm!");
-    }
-  };
-
-  // Hàm uploadProductImage để gửi ảnh sản phẩm lên API (nếu có ảnh)
-  const uploadProductImage = async (productId) => {
-    if (!productDetails.image) return; // Nếu không có ảnh thì thoát hàm
-
-    const formData = new FormData(); // Tạo formData để gửi file ảnh
-    formData.append("image", productDetails.image);
-
-    try {
-      const response = await axiosClient.post(
-        "/admin/product/image/create",
-        formData,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data", // Đặt header để API hiểu đây là file ảnh
-          },
-        }
-      );
-      console.log("Hình ảnh đã được tải lên:", response.data);
-      return response.data; // Trả về thông tin hình ảnh
-    } catch (error) {
-      console.error("Lỗi khi tải lên hình ảnh:", error);
-      alert("Có lỗi khi tải lên hình ảnh!");
     }
   };
 
@@ -106,10 +74,6 @@ const UploadProduct = () => {
     const productData = await uploadProductDetails();
 
     if (productData) {
-      // Nếu sản phẩm đã được tạo và có ảnh, thì tải ảnh lên
-      if (productDetails.image) {
-        await uploadProductImage(productData._id); // Gửi ảnh với ID sản phẩm
-      }
       alert("Sản phẩm đã được đăng bán!");
     } else {
       alert("Có lỗi khi tạo sản phẩm!");
@@ -172,22 +136,10 @@ const UploadProduct = () => {
             <Input
               type="number"
               id="ageAppropriate"
-              name="ageAppropriate"
+              name="suitableAge"
               placeholder="Nhập độ tuổi phù hợp"
-              value={productDetails.ageAppropriate}
+              value={productDetails.suitableAge}
               onChange={handleChange}
-            />
-          </FormGroup>
-          {/* Upload ảnh sản phẩm */}
-          <FormGroup>
-            <Label for="imageUpload">
-              <i className="fas fa-image"></i> Tải ảnh sản phẩm
-            </Label>
-            <Input
-              type="file"
-              id="imageUpload"
-              accept="image/*"
-              onChange={handleFileChange}
             />
           </FormGroup>
           {/* Nút Đăng Bán */}

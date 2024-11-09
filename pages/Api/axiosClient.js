@@ -7,6 +7,7 @@ const authToken =
 
 // Tạo một instance của axios với cấu hình mặc định
 const axiosClient = axios.create({
+  // baseURL: "http://localhost:1234",
   baseURL: "https://toy-kingdom-backend.onrender.com", // Địa chỉ API backend của bạn
   headers: {
     "Content-Type": "application/json",
