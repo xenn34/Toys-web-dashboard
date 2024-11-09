@@ -23,14 +23,15 @@ const ReviewContainer = () => {
     };
     fetchProducts();
   }, []); // Chạy một lần khi component được mount
+
   return (
-    <Container className="pt-3 pb-3  bg-light  ">
+    <Container className="pt-3 pb-3  bg-light">
       <Row>
         {products.length > 0 ? (
           products.map((product) => (
             <Col md={12} key={product.id}>
               {" "}
-              {/* Đặt độ rộng của Col là 12 để mỗi ReviewProduct nằm trên một hàng */}
+              {/* Thêm key duy nhất từ product.id */}
               <ReviewProduct product={product} />{" "}
               {/* Truyền mỗi product vào ReviewProduct */}
             </Col>

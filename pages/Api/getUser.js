@@ -22,5 +22,20 @@ const getUserInformation = async () => {
     return [];
   }
 };
+const getUserTopThree = async () => {
+  try {
+    const response = await axiosClient.get("/admin/user/findAll"); // Gọi API lấy tất cả người dùng
+    console.log("Dữ liệu người dùng:", response.data); // In ra dữ liệu trả về
+    if (response.data && response.data.users) {
+      // Lọc danh sách người dùng và lấy 3 người dùng đầu tiên
+      const topThreeUsers = response.data.users.slice(0, 3);
+      return topThreeUsers; // Trả về 3 người dùng đầu tiên
+    }
+    return []; // Trả về mảng rỗng nếu không có dữ liệu người dùng
+  } catch (error) {
+    console.error("Lỗi khi lấy thông tin người dùng:", error);
+    return []; // Trả về mảng rỗng nếu có lỗi
+  }
+};
 
-export { getUserInformation };
+export { getUserInformation, getUserTopThree };
