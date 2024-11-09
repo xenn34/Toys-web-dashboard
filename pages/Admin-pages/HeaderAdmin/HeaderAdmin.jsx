@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import React, { useState } from "react"; // Import React và useState hook từ thư viện React
+import { Link, useLocation } from "react-router-dom"; // Import Link và useLocation từ React Router
 import {
   Navbar,
   Nav,
@@ -10,27 +10,27 @@ import {
   DropdownItem,
   NavbarToggler,
   Collapse,
-} from "reactstrap";
-import admin_pic from "../../Dashboard/img/Shin.jfif";
-import logo from "../img/image.png";
-import "./HeaderAdmin.scss";
+} from "reactstrap"; // Import các thành phần của Reactstrap để xây dựng Navbar
+import admin_pic from "../../Dashboard/img/Shin.jfif"; // Import hình ảnh admin
+import logo from "../img/image.png"; // Import logo
+import "./HeaderAdmin.scss"; // Import stylesheet SCSS cho Header
 
 const AdminHeader = () => {
-  const [dropdownOpen, setDropdownOpen] = useState(false);
-  const [isOpen, setIsOpen] = useState(false);
-  const location = useLocation();
+  const [dropdownOpen, setDropdownOpen] = useState(false); // Trạng thái mở/đóng của dropdown
+  const [isOpen, setIsOpen] = useState(false); // Trạng thái mở/đóng của Navbar
+  const location = useLocation(); // Lấy thông tin về URL hiện tại
 
-  const toggleDropdown = () => setDropdownOpen(!dropdownOpen);
-  const toggleNavbar = () => setIsOpen(!isOpen);
+  const toggleDropdown = () => setDropdownOpen(!dropdownOpen); // Hàm để chuyển trạng thái của dropdown
+  const toggleNavbar = () => setIsOpen(!isOpen); // Hàm để chuyển trạng thái của Navbar
 
   const handleLinkClick = () => {
     if (isOpen) {
-      toggleNavbar();
+      toggleNavbar(); // Đóng Navbar khi nhấn vào link nếu Navbar đang mở
     }
   };
 
   const isActive = (path) =>
-    location.pathname === path ? "text-dark" : "text-black";
+    location.pathname === path ? "text-dark" : "text-black"; // Kiểm tra nếu đường dẫn hiện tại trùng với path, áp dụng class 'text-dark'
 
   return (
     <Navbar
@@ -39,31 +39,35 @@ const AdminHeader = () => {
     >
       <div className="d-flex align-items-center">
         <img
-          src={logo}
+          src={logo} // Hiển thị logo
           alt="Logo"
           className="logo"
-          style={{ height: "50px", marginRight: "10px" }}
+          style={{ height: "50px", marginRight: "10px" }} // Thiết lập kích thước logo
         />
         <NavbarToggler onClick={toggleNavbar} className="navbar-toggler">
-          <span className="fas fa-bars"></span>
+          <span className="fas fa-bars"></span>{" "}
+          {/* Biểu tượng hamburger cho Navbar */}
         </NavbarToggler>
       </div>
 
       <Collapse isOpen={isOpen} navbar>
+        {" "}
+        {/* Collapse Navbar khi di chuyển xuống trên màn hình nhỏ */}
         <Nav className="me-auto" navbar>
+          {/* Các NavItem là các đường link trong navbar */}
           <NavItem>
             <Link
-              to="/home"
-              className={`nav-link nav-text ${isActive("/home")}`}
-              onClick={handleLinkClick}
+              to="/home" // Đường dẫn đến trang home
+              className={`nav-link nav-text ${isActive("/home")}`} // Áp dụng class tùy theo active path
+              onClick={handleLinkClick} // Đóng Navbar khi nhấn vào link
             >
               TRANG CHỦ
             </Link>
           </NavItem>
           <NavItem>
             <Link
-              to="/dashboard"
-              className={`nav-link nav-text ${isActive("/dashboard")}`}
+              to="/dashboard" // Đường dẫn đến trang dashboard
+              className={`nav-link nav-text ${isActive("/dashboard")}`} // Áp dụng class tùy theo active path
               onClick={handleLinkClick}
             >
               DASHBOARD
@@ -71,8 +75,8 @@ const AdminHeader = () => {
           </NavItem>
           <NavItem>
             <Link
-              to="/employees"
-              className={`nav-link nav-text ${isActive("/employees")}`}
+              to="/employees" // Đường dẫn đến trang nhân viên
+              className={`nav-link nav-text ${isActive("/employees")}`} // Áp dụng class tùy theo active path
               onClick={handleLinkClick}
             >
               NHÂN VIÊN
@@ -80,8 +84,8 @@ const AdminHeader = () => {
           </NavItem>
           <NavItem>
             <Link
-              to="/customers"
-              className={`nav-link nav-text ${isActive("/customers")}`}
+              to="/customers" // Đường dẫn đến trang khách hàng
+              className={`nav-link nav-text ${isActive("/customers")}`} // Áp dụng class tùy theo active path
               onClick={handleLinkClick}
             >
               KHÁCH HÀNG
@@ -92,7 +96,8 @@ const AdminHeader = () => {
 
       <Nav navbar className="ms-3">
         <NavItem className="d-flex align-items-center">
-          <span className="me-2 employee-name">NGUYỄN HOÀNG HUY</span>
+          <span className="me-2 employee-name">NGUYỄN HOÀNG HUY</span>{" "}
+          {/* Tên người dùng */}
           <Dropdown isOpen={dropdownOpen} toggle={toggleDropdown}>
             <DropdownToggle
               tag="span"
@@ -102,27 +107,14 @@ const AdminHeader = () => {
               className="nav-link"
             >
               <img
-                src={admin_pic}
+                src={admin_pic} // Hiển thị ảnh avatar của admin
                 alt="Admin Avatar"
                 className="rounded-circle"
-                width="40"
+                width="40" // Kích thước ảnh avatar
                 height="40"
-                style={{ cursor: "pointer" }}
+                style={{ cursor: "pointer" }} // Con trỏ chuột chuyển thành pointer khi hover
               />
             </DropdownToggle>
-            <DropdownMenu end>
-              <DropdownItem>
-                <Link to="/profile" className="dropdown-item">
-                  <i className="fas fa-user me-2"></i> THÔNG TIN CÁ NHÂN
-                </Link>
-              </DropdownItem>
-              <DropdownItem divider />
-              <DropdownItem>
-                <Link to="/logout" className="dropdown-item">
-                  <i className="fas fa-sign-out-alt me-2"></i> ĐĂNG XUẤT
-                </Link>
-              </DropdownItem>
-            </DropdownMenu>
           </Dropdown>
         </NavItem>
       </Nav>
@@ -130,4 +122,4 @@ const AdminHeader = () => {
   );
 };
 
-export default AdminHeader;
+export default AdminHeader; // Export component AdminHeader để sử dụng ở nơi khác

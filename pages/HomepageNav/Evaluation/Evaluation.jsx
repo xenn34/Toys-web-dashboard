@@ -8,12 +8,14 @@ import {
   ModalHeader,
   ModalBody,
   ModalFooter,
-} from "reactstrap";
-import "./Evaluation.scss";
-import productImage from "../../Dashboard/img/ToyLogo.avif";
-import ReviewCard from "./ReviewCard/ReviewCard";
+} from "reactstrap"; // Import các component từ Reactstrap
+import "./Evaluation.scss"; // Import file SCSS để tùy chỉnh giao diện
+import productImage from "../../Dashboard/img/ToyLogo.avif"; // Import hình ảnh sản phẩm mẫu
+import ReviewCard from "./ReviewCard/ReviewCard"; // Import component con ReviewCard để hiển thị từng đánh giá
 
+// Component ReviewProduct dùng để hiển thị thông tin sản phẩm và đánh giá
 const ReviewProduct = () => {
+  // Dữ liệu sản phẩm mẫu
   const productData = {
     id: "SP12345",
     name: "Laptop Pro Max 2024",
@@ -21,8 +23,9 @@ const ReviewProduct = () => {
       "Laptop Pro Max 2024 với cấu hình mạnh mẽ, thích hợp cho mọi nhu cầu từ làm việc đến giải trí.",
   };
 
+  // State để quản lý trạng thái mở/đóng của modal đánh giá
   const [modal, setModal] = useState(false);
-  const toggleModal = () => setModal(!modal);
+  const toggleModal = () => setModal(!modal); // Hàm để bật/tắt modal
 
   // Dữ liệu đánh giá mẫu
   const reviews = [
@@ -35,6 +38,7 @@ const ReviewProduct = () => {
     },
   ];
 
+  // Render giao diện component
   return (
     <Container className="pt-3 pb-3 review-container bg-white shadow-sm rounded">
       <Row>
@@ -59,6 +63,7 @@ const ReviewProduct = () => {
           </Row>
         </Col>
         <Col md={4}>
+          {/* Hiển thị hình ảnh sản phẩm */}
           <img
             src={productImage}
             alt={productData.name}
@@ -68,10 +73,11 @@ const ReviewProduct = () => {
         </Col>
       </Row>
 
-      {/* Modal hiển thị đánh giá */}
+      {/* Modal hiển thị các đánh giá */}
       <Modal isOpen={modal} toggle={toggleModal}>
         <ModalHeader toggle={toggleModal}>Đánh giá sản phẩm</ModalHeader>
         <ModalBody>
+          {/* Lặp qua danh sách đánh giá và hiển thị từng đánh giá bằng component ReviewCard */}
           {reviews.map((review, index) => (
             <ReviewCard key={index} review={review} />
           ))}

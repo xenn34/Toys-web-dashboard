@@ -1,196 +1,209 @@
+/* Card container */
 .card-container {
-  border: 1px solid #e0e0e0;
-  border-radius: 10px;
-  overflow: hidden;
-  transition: box-shadow 0.3s ease, transform 0.3s ease;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e0e0e0; // Đường viền màu xám nhạt cho card
+  border-radius: 10px; // Bo góc cho card
+  overflow: hidden; // Ẩn phần ngoài giới hạn của card
+  transition: box-shadow 0.3s ease, transform 0.3s ease; // Hiệu ứng chuyển động cho shadow và biến đổi hình
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); // Tạo đổ bóng nhẹ cho card
 
+  /* Hiệu ứng hover cho card */
   &:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px); // Di chuyển card lên một chút khi hover
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); // Đổ bóng đậm hơn khi hover
   }
 
+  /* Nhãn trạng thái (In stock/Out of stock) */
   .status-label {
     display: inline-block;
-    padding: 0.25rem 0.5rem;
-    font-size: 0.875rem;
-    border-radius: 5px;
-    color: #fff;
+    padding: 0.25rem 0.5rem; // Khoảng cách cho nhãn
+    font-size: 0.875rem; // Kích thước chữ
+    border-radius: 5px; // Bo góc nhãn
+    color: #fff; // Màu chữ trắng
     text-align: center;
-    font-weight: 600;
+    font-weight: 600; // In đậm chữ
 
+    /* Trạng thái còn hàng */
     &.in-stock {
-      background-color: #28a745; // Màu xanh
+      background-color: #28a745; // Màu xanh cho "In stock"
     }
 
+    /* Trạng thái hết hàng */
     &.out-of-stock {
-      background-color: #dc3545; // Màu đỏ
+      background-color: #dc3545; // Màu đỏ cho "Out of stock"
     }
   }
 
+  /* Mô tả sản phẩm */
   .description {
     font-size: 0.9rem;
-    color: #444444;
-    margin-top: 10px;
-    line-height: 1.5;
-    text-align: justify; /* Căn đều phần mô tả */
+    color: #444444; // Màu chữ xám đậm cho mô tả
+    margin-top: 10px; // Khoảng cách từ trên
+    line-height: 1.5; // Cách dòng 1.5 để dễ đọc
+    text-align: justify; // Căn đều phần mô tả
   }
 
+  /* Hình ảnh sản phẩm */
   .product-image {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 10px;
-    transition: transform 0.3s ease;
+    width: 100%; // Chiều rộng ảnh chiếm toàn bộ chiều rộng của container
+    height: 200px; // Chiều cao cố định cho ảnh
+    object-fit: cover; // Đảm bảo ảnh không bị méo, cắt bớt nếu cần
+    border-radius: 10px; // Bo góc cho ảnh
+    transition: transform 0.3s ease; // Hiệu ứng chuyển động khi hover
 
+    /* Hiệu ứng phóng to khi hover */
     &:hover {
-      transform: scale(1.05);
+      transform: scale(1.05); // Phóng to ảnh khi hover
     }
   }
 
+  /* Nút chính (ví dụ: Xem chi tiết sản phẩm) */
   .btn-primary {
-    background-color: #007bff;
+    background-color: #007bff; // Màu nền xanh dương
     border-color: #007bff;
     padding: 0.5rem 1rem;
-    font-size: 0.875rem;
-    font-weight: bold;
-    border-radius: 5px;
-    transition: background-color 0.3s ease, border-color 0.3s ease;
+    font-size: 0.875rem; // Kích thước chữ
+    font-weight: bold; // Chữ in đậm
+    border-radius: 5px; // Bo góc cho nút
+    transition: background-color 0.3s ease, border-color 0.3s ease; // Hiệu ứng chuyển màu khi hover
 
+    /* Hiệu ứng hover cho nút */
     &:hover {
-      background-color: #0056b3;
+      background-color: #0056b3; // Màu nền thay đổi khi hover
       border-color: #004085;
     }
   }
 
+  /* Nút xóa (danger) */
   .btn-danger {
-    background-color: #dc3545;
+    background-color: #dc3545; // Màu đỏ cho nút xóa
     border-color: #dc3545;
     padding: 0.5rem 1rem;
     font-size: 0.875rem;
     font-weight: bold;
     border-radius: 5px;
-    transition: background-color 0.3s ease, border-color 0.3s ease;
+    transition: background-color 0.3s ease, border-color 0.3s ease; // Hiệu ứng hover cho nút
 
+    /* Hiệu ứng hover cho nút xóa */
     &:hover {
-      background-color: #c82333;
+      background-color: #c82333; // Màu nền thay đổi khi hover
       border-color: #bd2130;
     }
   }
 
+  /* Các nút hành động (sửa, xóa, v.v.) */
   .action-buttons {
     display: flex;
-    gap: 1rem;
-    justify-content: flex-start;
-    flex-wrap: nowrap;
-    margin-top: 10px;
+    gap: 1rem; // Khoảng cách giữa các nút
+    justify-content: flex-start; // Căn trái
+    flex-wrap: nowrap; // Không xuống dòng
+    margin-top: 10px; // Khoảng cách từ trên
 
     .btn {
-      flex: 1;
-      text-align: center;
+      flex: 1; // Đảm bảo mỗi nút có chiều rộng đều
+      text-align: center; // Căn giữa chữ trong nút
     }
   }
 
+  /* Tên sản phẩm */
   .product-name {
     font-weight: bold; // Đảm bảo tên sản phẩm in đậm
   }
 }
 
-/* Sử dụng media query để thay đổi cấu trúc khi kích thước màn hình là tablet (740px - 1024px) */
+/* Media query cho tablet (740px - 1024px) */
 @media (min-width: 740px) and (max-width: 1024px) {
   .card-container .action-buttons {
-    display: block;
+    display: block; // Hiển thị các nút hành động theo dạng block
     margin-top: 10px;
   }
 
   .card-container .pt-2 {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-between; // Căn đều các phần tử trong pt-2
   }
 
   .card-container .status-label {
-    margin-bottom: 10px;
+    margin-bottom: 10px; // Thêm khoảng cách dưới nhãn trạng thái
   }
 
   .card-container .mx-2 {
-    display: none;
+    display: none; // Ẩn các phần tử có class mx-2
   }
 }
 
-/* Sử dụng media query cho màn hình dưới 540px */
+/* Media query cho màn hình nhỏ hơn 540px */
 @media (max-width: 540px) {
   .card-container .action-buttons {
-    display: block;
+    display: block; // Hiển thị các nút hành động theo dạng block
     margin-top: 10px;
   }
-
   .card-container .pt-2 {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-between; // Căn đều các phần tử trong pt-2
   }
-
   .card-container .status-label {
-    margin-bottom: 10px;
+    margin-bottom: 10px; // Thêm khoảng cách dưới nhãn trạng thái
   }
-
   .card-container .mx-2 {
-    display: none;
+    display: none; // Ẩn các phần tử có class mx-2
   }
 }
-// Modal chỉnh sửa sản phẩm
+/* Modal chỉnh sửa sản phẩm */
 .modal-content {
-  border-radius: 10px;
-  padding: 20px;
-  background-color: #fff;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px; // Bo góc modal
+  padding: 20px; // Khoảng cách bên trong modal
+  background-color: #fff; // Nền trắng
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); // Đổ bóng cho modal
 }
 
 .modal-header {
-  border-bottom: none;
-  font-weight: bold;
-  font-size: 1.25rem;
-  color: #333;
+  border-bottom: none; // Bỏ đường viền dưới modal header
+  font-weight: bold; // In đậm cho tiêu đề modal
+  font-size: 1.25rem; // Kích thước chữ tiêu đề modal
+  color: #333; // Màu chữ
 }
 
 .modal-body {
-  padding: 20px;
+  padding: 20px; // Khoảng cách bên trong body modal
 
   label {
     display: block;
-    font-size: 1rem;
-    font-weight: 500;
-    margin-bottom: 8px;
-    color: #555;
+    font-size: 1rem; // Kích thước chữ cho label
+    font-weight: 500; // Chữ vừa phải
+    margin-bottom: 8px; // Khoảng cách dưới label
+    color: #555; // Màu chữ
   }
 
+  /* Input và textarea trong modal */
   input,
   textarea {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 1rem;
-    outline: none;
+    width: 100%; // Đảm bảo các trường chiếm toàn bộ chiều rộng
+    padding: 10px; // Khoảng cách bên trong input
+    margin-bottom: 15px; // Khoảng cách dưới các input
+    border: 1px solid #ccc; // Viền cho input
+    border-radius: 5px; // Bo góc input
+    font-size: 1rem; // Kích thước chữ
+    outline: none; // Bỏ viền mặc định khi chọn input
 
     &:focus {
-      border-color: #007bff;
-      box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+      border-color: #007bff; // Viền xanh khi input được focus
+      box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); // Đổ bóng nhẹ khi focus
     }
   }
 
+  /* Textarea có thể thay đổi kích thước */
   textarea {
-    resize: vertical;
-    min-height: 100px;
+    resize: vertical; // Cho phép thay đổi chiều cao textarea
+    min-height: 100px; // Chiều cao tối thiểu cho textarea
   }
 }
 
 .modal-footer {
   display: flex;
-  justify-content: flex-end;
-  gap: 10px;
+  justify-content: flex-end; // Căn nút vào bên phải
+  gap: 1rem;
 }
 
 button {
@@ -198,42 +211,21 @@ button {
   padding: 10px 20px;
   border-radius: 5px;
   font-size: 1rem;
-  transition: background-color 0.3s ease, border-color 0.3s ease;
-
-  &.btn-secondary {
-    background-color: #6c757d;
-    border-color: #6c757d;
-
-    &:hover {
-      background-color: #5a6268;
-      border-color: #545b62;
-    }
-  }
-
-  &.btn-primary {
-    background-color: #007bff;
-    border-color: #007bff;
-
-    &:hover {
-      background-color: #0056b3;
-      border-color: #004085;
-    }
-  }
 }
 
-// Sử dụng media query cho màn hình nhỏ
+/* Điều chỉnh cho màn hình nhỏ hơn 768px */
 @media (max-width: 768px) {
   .modal-body {
-    padding: 15px;
+    padding: 15px; // Điều chỉnh padding cho màn hình nhỏ hơn
   }
 
   input,
   textarea {
-    padding: 8px;
+    padding: 8px; // Giảm padding cho input và textarea
   }
 
   button {
-    padding: 8px 16px;
-    font-size: 0.9rem;
+    padding: 8px 16px; // Giảm padding cho nút
+    font-size: 0.9rem; // Giảm kích thước nút
   }
 }

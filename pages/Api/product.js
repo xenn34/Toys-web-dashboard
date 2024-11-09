@@ -56,3 +56,29 @@ const updateProduct = async (_id, attributes) => {
 };
 
 export { getAllProducts, getProduct, updateProduct, deleteProduct };
+
+const uploadProduct = async (productData) => {
+  try {
+    const formData = new FormData();
+    formData.append("name", productData.name);
+    formData.append("price", productData.price);
+    formData.append("description", productData.description);
+    formData.append("ageAppropriate", productData.ageAppropriate);
+    if (productData.image) {
+      formData.append("image", productData.image);
+    }
+
+    const response = await axiosClient.post("/admin/product/upload", formData, {
+      headers: {
+        "Content-Type": "multipart/form-data", // Chắc chắn rằng header là đúng khi gửi file
+      },
+    });
+    console.log("Sản phẩm đã đăng bán:", response.data);
+    return response.data; // Trả về dữ liệu từ server (ví dụ: thông báo thành công)
+  } catch (error) {
+    console.error("Lỗi khi đăng bán sản phẩm:", error);
+    throw error;
+  }
+};
+
+export { uploadProduct };

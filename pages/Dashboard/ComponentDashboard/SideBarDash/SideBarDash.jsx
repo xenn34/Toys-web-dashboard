@@ -125,25 +125,11 @@ const SideBar = () => {
         <Nav className="mb-md-1" navbar>
           <NavItem className="active-pro">
             <Link
-              to="https://www.creative-tim.com/product/argon-dashboard-pro-react?ref=adr-admin-sidebar"
+              to="/dashboard/overview"
               style={{ textDecoration: "none", color: "inherit" }}
             >
               <i className="fas fa-home" style={{ marginRight: "8px" }}></i>
               TRANG CHỦ
-            </Link>
-          </NavItem>
-        </Nav>
-        <Nav className="mb-md-1" navbar>
-          <NavItem className="active-pro">
-            <Link
-              to="https://www.creative-tim.com/product/argon-dashboard-pro-react?ref=adr-admin-sidebar"
-              style={{ textDecoration: "none", color: "inherit" }}
-            >
-              <i
-                className="fas fa-sign-out-alt"
-                style={{ marginRight: "8px" }}
-              ></i>
-              ĐĂNG XUẤT
             </Link>
           </NavItem>
         </Nav>

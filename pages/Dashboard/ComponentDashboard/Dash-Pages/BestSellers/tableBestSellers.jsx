@@ -1,3 +1,4 @@
+// Import các thư viện và component cần thiết từ React và Reactstrap
 import React, { useState } from "react";
 import {
   Table,
@@ -10,10 +11,12 @@ import {
   Row,
   Col,
 } from "reactstrap";
-import "../BestSellers/styleBestSellers.scss";
-import img_lbx from "../../../img/lbx.jfif";
+import "../BestSellers/styleBestSellers.scss"; // Import file CSS tùy chỉnh
+import img_lbx from "../../../img/lbx.jfif"; // Import hình ảnh mẫu
 
+// Khởi tạo component TableBestSellers
 const TableBestSellers = () => {
+  // Dữ liệu mẫu chứa thông tin sản phẩm
   const initialData = [
     {
       id: 1,
@@ -107,9 +110,11 @@ const TableBestSellers = () => {
     },
   ];
 
+  // Sử dụng state để lưu trữ dữ liệu sản phẩm đã được sắp xếp và sản phẩm được chọn
   const [sortedData, setSortedData] = useState(initialData);
   const [selectedProductIndex, setSelectedProductIndex] = useState(null);
 
+  // Hàm format tiền theo đơn vị VNĐ
   const formatCurrency = (value) => {
     return new Intl.NumberFormat("vi-VN", {
       style: "currency",
@@ -117,17 +122,21 @@ const TableBestSellers = () => {
     }).format(value);
   };
 
+  // Hàm sắp xếp dữ liệu theo doanh thu giảm dần
   const sortByRevenue = () => {
     const sorted = [...sortedData].sort((a, b) => b.revenue - a.revenue);
     setSortedData(sorted);
   };
 
+  // Hàm sắp xếp dữ liệu theo số lượng bán giảm dần
   const sortBySold = () => {
     const sorted = [...sortedData].sort((a, b) => b.sold - a.sold);
     setSortedData(sorted);
   };
 
+  // Hàm xử lý sự kiện khi nhấn vào hàng của một sản phẩm
   const handleRowClick = (index) => {
+    // Toggle chỉ số sản phẩm được chọn khi nhấn
     setSelectedProductIndex(selectedProductIndex === index ? null : index);
   };
 
@@ -135,6 +144,7 @@ const TableBestSellers = () => {
     <div style={{ padding: "2px" }}>
       <Container>
         <h1 className="title">TOP 10 SẢN PHẨM BÁN CHẠY NHẤT</h1>
+        {/* Nhóm nút để sắp xếp theo doanh thu hoặc số lượng */}
         <div className="button-group pb-1">
           <Button color="primary" onClick={sortByRevenue}>
             DOANH THU
@@ -147,6 +157,7 @@ const TableBestSellers = () => {
             SỐ LƯỢNG
           </Button>
         </div>
+        {/* Bảng hiển thị danh sách sản phẩm */}
         <Table bordered hover responsive className="table">
           <thead>
             <tr>
@@ -160,6 +171,7 @@ const TableBestSellers = () => {
           <tbody>
             {sortedData.map((product, index) => (
               <React.Fragment key={product.id}>
+                {/* Hàng hiển thị thông tin tổng quan của sản phẩm */}
                 <tr onClick={() => handleRowClick(index)}>
                   <td>{index + 1}</td>
                   <td>{product.name}</td>
@@ -167,6 +179,7 @@ const TableBestSellers = () => {
                   <td>{product.sold}</td>
                   <td>{formatCurrency(product.revenue)}</td>
                 </tr>
+                {/* Hiển thị chi tiết sản phẩm nếu sản phẩm được chọn */}
                 {selectedProductIndex === index && (
                   <tr>
                     <td colSpan="5">

@@ -49,7 +49,7 @@ const OverViewDash = () => {
         </Row>
         <hr className="my-3 text-danger" />
         {/* Người dùng */}
-        <Row>
+        {/* <Row>
           <Col xs="12" md="4" lg="3">
             <Card className="card-stats mb-4 mb-xl-0">
               <CardBody>
@@ -80,10 +80,10 @@ const OverViewDash = () => {
               <Users />
             </Container>
           </Col>
-        </Row>
-        <hr className="my-3 text-danger" />
+        // </Row> */}
+        {/* <hr className="my-3 text-danger" /> */}
         {/* Hàng hóa */}
-        <Row>
+        {/* <Row>
           <Col xs="12" md="4" lg="3">
             <Card className="card-stats mb-4 mb-xl-0">
               <CardBody>
@@ -122,7 +122,7 @@ const OverViewDash = () => {
               </Container>
             </Row>
           </Col>
-        </Row>
+        </Row> */}
       </Container>
     </div>
   );
