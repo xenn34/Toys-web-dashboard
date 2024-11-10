@@ -1,0 +1,92 @@
+.shopping-cart {
+  .title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: left;
+
+    h1 {
+      margin: 0; /* Đảm bảo không có khoảng cách thừa */
+    }
+  }
+
+  .header-row {
+    font-size: 18px;
+    color: rgb(85, 85, 85);
+    padding: 10px 0;
+    text-align: left;
+
+    // Ẩn tiêu đề trong các thiết bị nhỏ
+    @media (max-width: 768px) {
+      display: none; // Ẩn header row khi màn hình nhỏ
+    }
+
+    .text-detail,
+    .text-quantity,
+    .text-price,
+    .text-total {
+      text-align: left;
+    }
+  }
+
+  .product-row {
+    margin-bottom: 20px;
+  }
+
+  .summary {
+    font-size: 18px;
+    font-weight: 600;
+    padding: 10px 0;
+
+    .summary-row {
+      display: flex;
+      align-items: center; /* Căn giữa theo chiều dọc */
+      justify-content: space-between; /* Căn giữa theo chiều ngang */
+    }
+
+    .total {
+      color: #333;
+      display: flex;
+      align-items: center;
+      height: 100%;
+    }
+
+    .checkout-col {
+      display: flex;
+      align-items: center;
+    }
+
+    .checkout-button {
+      background-color: #28a745; /* Màu nền xanh */
+      color: white;
+      border: none;
+      border-radius: 5px;
+      padding: 10px 20px;
+      cursor: pointer;
+      height: 50px;
+
+      &:hover {
+        background-color: #218838; /* Màu nền khi hover */
+      }
+    }
+  }
+
+  // Responsive Styles
+  @media (max-width: 768px) {
+    .shopping-cart {
+      .title {
+        font-size: 20px; /* Giảm kích thước cho thiết bị nhỏ */
+      }
+
+      .summary {
+        flex-direction: column; /* Chuyển sang chiều dọc */
+        align-items: flex-start; /* Căn trái cho tổng cộng và nút thanh toán */
+
+        .summary-row {
+          width: 100%; /* Đảm bảo chiều rộng đầy đủ */
+          justify-content: space-between;
+        }
+      }
+    }
+  }
+}
