@@ -4,7 +4,12 @@ import axiosClient from "./axiosClient";
 // Lấy tất cả sản phẩm
 const getAllProducts = async () => {
   try {
-    const response = await axiosClient.get("/product/findAll");
+    const filter = {
+      revenue: ["gt", 0],
+    };
+    const response = await axiosClient.get("/product/findAll", {
+      params: filter,
+    });
     console.log("Dữ liệu sản phẩm:", response.data); // In ra dữ liệu trả về
     return response.data;
   } catch (error) {

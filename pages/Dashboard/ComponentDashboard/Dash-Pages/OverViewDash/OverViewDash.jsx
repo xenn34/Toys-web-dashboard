@@ -17,7 +17,7 @@ const OverViewDash = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const data = await getAllProducts(); // Gọi hàm lấy dữ liệu sản phẩm
+        const data = await getAllProducts();
         if (data && Array.isArray(data.products)) {
           setProductData(data.products); // Lưu vào state
           console.log(data.products.length);
