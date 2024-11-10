@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Table, Container, Row, Col } from "reactstrap"; // Thêm Row và Col từ reactstrap
+import { Table, Container, Row, Col } from "reactstrap";
 import "../BestSellers/styleBestSellers.scss";
 import { getAllProducts } from "../../../../Api/product";
 
@@ -14,12 +14,10 @@ const TableBestSellers = () => {
     const fetchData = async () => {
       try {
         const response = await getAllProducts();
-        // Kiểm tra và lấy danh sách sản phẩm từ response
         if (response && Array.isArray(response.products)) {
-          setProductData(response.products); // Lưu sản phẩm vào state
+          setProductData(response.products);
         } else {
-          console.warn("Dữ liệu từ API không phải là một mảng sản phẩm");
-          setProductData([]); // Đặt giá trị mặc định là mảng trống nếu không đúng
+          setProductData([]);
         }
       } catch (error) {
         console.error("Lỗi khi lấy danh sách sản phẩm:", error);
@@ -52,15 +50,15 @@ const TableBestSellers = () => {
       return (
         calculateRevenue(b.price, b.totalSold) -
         calculateRevenue(a.price, a.totalSold)
-      ); // Sắp xếp theo doanh thu
+      );
     } else if (sortBy === "quantity") {
-      return b.totalSold - a.totalSold; // Sắp xếp theo số lượng bán ra
+      return b.totalSold - a.totalSold;
     }
     return 0;
   });
 
   return (
-    <div style={{ padding: "2px" }}>
+    <div className="table-best-sellers">
       <Container>
         <h1 className="title">TOP 10 SẢN PHẨM BÁN CHẠY NHẤT</h1>
 
@@ -133,7 +131,7 @@ const TableBestSellers = () => {
                               src={
                                 product.images && product.images[0]?.buffer
                                   ? `data:${product.images[0].mimetype};base64,${product.images[0].buffer}`
-                                  : "https://via.placeholder.com/150" // Hình ảnh mặc định nếu không có ảnh sản phẩm
+                                  : "https://via.placeholder.com/150"
                               }
                               alt={product.name}
                               style={{ width: "100%", height: "auto" }}

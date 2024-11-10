@@ -9,7 +9,6 @@ import AdminFooter from "../FooterAdmin/FooterAdmin";
 const CustomersPage = () => {
   const [selectedCustomerId, setSelectedCustomerId] = useState(null);
 
-  // Cập nhật dữ liệu khách hàng
   const customers = [
     {
       name: "John Doe",
@@ -42,7 +41,7 @@ const CustomersPage = () => {
   };
 
   return (
-    <Container className="bg-light">
+    <Container className="customers-page">
       <Row>
         <Col xs="12" md="3" className="sidebar-col">
           <SidebarAnimation className="sidebar-animation" />

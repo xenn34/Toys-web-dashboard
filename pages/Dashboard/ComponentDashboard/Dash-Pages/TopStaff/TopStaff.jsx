@@ -1,6 +1,4 @@
 import React from "react";
-import HeaderDash from "../../HeaderDash/HeaderDash";
-import FooterDash from "../../FooterDash/FooterDash";
 import { Col, Row } from "reactstrap";
 import TopStaffTable from "../TopStaff/TopStaffTable.jsx";
 import "./TopStaff.scss";
@@ -8,14 +6,11 @@ import "./TopStaff.scss";
 const TopStaff = () => {
   return (
     <div style={{ padding: "2px" }}>
-      {/* <HeaderDash /> */}
       <Row>
-        {" "}
-        <h1 className="title">TOP 5 NHÂN VIÊN CÓ DOANH SỐ CAO NHẤT</h1>
-        <TopStaffTable />
+        <div className="scrollable-table-container">
+          <TopStaffTable />
+        </div>
       </Row>
-      <Row></Row>
-      {/* <FooterDash /> */}
     </div>
   );
 };

@@ -1,49 +1,50 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Col, Row, Table } from "reactstrap";
+import getUserAdminOwner from "../../../../Api/getUserAdminOwner";
 import "./TopStaff.scss";
 
-// Dữ liệu giả lập
-const employees = [
-  { id: 1, name: "Nguyễn Văn A", sales: 5000000 },
-  { id: 2, name: "Trần Thị B", sales: 3000000 },
-  { id: 3, name: "Lê Văn C", sales: 7000000 },
-  { id: 4, name: "Phạm Thị D", sales: 6000000 },
-  { id: 5, name: "Nguyễn Văn E", sales: 8000000 },
-  { id: 6, name: "Trần Văn F", sales: 4500000 },
-];
-
-// Hàm định dạng số tiền
-const formatCurrency = (amount) => {
-  return amount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + " VNĐ";
-};
-
 const TopStaffTable = () => {
-  // Sắp xếp theo doanh số và lấy 5 nhân viên đầu tiên
-  const topEmployees = employees.sort((a, b) => b.sales - a.sales).slice(0, 5);
+  const [topEmployees, setTopEmployees] = useState([]);
+
+  useEffect(() => {
+    const fetchEmployees = async () => {
+      try {
+        const response = await getUserAdminOwner();
+        console.log("Response:", response);
+
+        if (Array.isArray(response)) {
+          setTopEmployees(response); // Gán toàn bộ mảng sản phẩm vào topEmployees
+        }
+      } catch (error) {
+        console.error("Lỗi khi lấy thông tin người dùng:", error);
+      }
+    };
+
+    fetchEmployees();
+  }, []);
 
   return (
-    <div className="table-container">
+    <div className="top-staff">
       <Row>
-        <Col>
+        <h1 className="title">TOP 5 NHÂN VIÊN CÓ DOANH SỐ CAO NHẤT</h1>
+        <div className="scrollable-table-container">
           <Table striped>
             <thead>
               <tr>
-                <th style={{ textAlign: "left" }}>Tên Nhân Viên</th>
-                <th style={{ textAlign: "left" }}>Doanh Số</th>
+                <th>Tên Nhân Viên</th>
+                <th>Doanh Số</th>
               </tr>
             </thead>
             <tbody>
               {topEmployees.map((employee) => (
-                <tr key={employee.id}>
-                  <td style={{ textAlign: "left" }}>{employee.name}</td>
-                  <td style={{ textAlign: "left" }}>
-                    {formatCurrency(employee.sales)}
-                  </td>
+                <tr key={employee._id}>
+                  <td>{employee.fullName}</td>
+                  <td>{employee.sales || "Chưa cập nhật"}</td>
                 </tr>
               ))}
             </tbody>
           </Table>
-        </Col>
+        </div>
       </Row>
     </div>
   );
