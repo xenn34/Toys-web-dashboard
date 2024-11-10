@@ -5,10 +5,10 @@ import "./ReviewCard.scss";
 const ReviewCard = () => {
   // Dữ liệu giả lập đánh giá
   const [reviews] = useState([
-    { name: "Nguyễn Văn A", comment: "Sản phẩm rất tốt!", rating: 5 },
-    { name: "Trần Thị B", comment: "Mình rất thích laptop này.", rating: 4 },
+    { name: "Nguyễn Văn Tú", comment: "Danh gia", rating: 5 },
+    { name: "User10", comment: "Đồ chơi rất đẹp", rating: 4 },
     {
-      name: "Lê Văn C",
+      name: "TestUser",
       comment: "Chất lượng tốt, giao hàng nhanh.",
       rating: 5,
     },

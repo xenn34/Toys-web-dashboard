@@ -13,7 +13,6 @@ const BestSellers = () => {
         <Row>
           <TableBestSellers />
         </Row>
-        <Row></Row>
       </Container>
       {/* <FooterDash /> */}
     </div>
